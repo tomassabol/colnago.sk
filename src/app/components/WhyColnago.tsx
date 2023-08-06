@@ -82,8 +82,8 @@ export default function WhyColnago() {
           <h1 className="text-4xl italic font-bold">Colnago DNA</h1>
         </div>
 
-        <div className="flex items-center md:h-[40vh] h-[80vh]">
-          <div className="border border-[#b59251] p-12 w-2/3 space-y-4 h-full">
+        <div className="flex items-center md:h-[40vh] h-[60vh]">
+          <div className="border border-[#b59251] lg:p-12 p-6 w-2/3 space-y-4 h-full">
             <h3 className="text-[#b59251] font-bold text-2xl">{header}</h3>
             <p className="whitespace-break-spaces">{text}</p>
           </div>
