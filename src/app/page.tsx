@@ -5,7 +5,7 @@ import WhyColnago from "~/app/components/WhyColnago";
 import Predajna from "~/app/assets/images/prodejna.jpg";
 import Card from "~/app/components/Card";
 import TestRide from "~/app/assets/images/test-ride.jpeg";
-import Header from "./components/Header";
+import ColnagoBG from "~/app/assets/images/colnago.jpg";
 
 export default function Home() {
   return (
@@ -15,8 +15,7 @@ export default function Home() {
           className="w-full h-[85vh]"
           style={{
             aspectRatio: "auto auto",
-            background:
-              'linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)) 0% 0% / cover, url("https://cdn.myshoptet.com/usr/www.colnago.cz/user/banners/c68.jpg?64413bd0") center 100% no-repeat transparent',
+            background: `linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)) 0% 0% / cover, url(${ColnagoBG.src}) center 100% no-repeat transparent`,
           }}
         >
           <div className="relative w-screen h-full">
