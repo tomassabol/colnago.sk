@@ -16,6 +16,7 @@ export default function Footer() {
             { title: "Časovka", href: "/" },
             { title: "Klasika", href: "/" },
           ]}
+          key={crypto.randomUUID()}
         />
 
         {/* Colnago */}
@@ -27,6 +28,7 @@ export default function Footer() {
             { title: "Sieň slávy", href: "/" },
             { title: "Eventy", href: "/" },
           ]}
+          key={crypto.randomUUID()}
         />
 
         {/* Kontaktujte nás */}
@@ -36,6 +38,7 @@ export default function Footer() {
             { title: "Predajne", href: "/" },
             { title: "Napíšte nám", href: "/" },
           ]}
+          key={crypto.randomUUID()}
         />
       </footer>
     </>

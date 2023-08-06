@@ -37,7 +37,11 @@ export default function Header() {
         <ul className="gap-x-10 flex text-sm tracking-widest text-white">
           {links.map((link) => (
             <li>
-              <Link href={link.href} className="cursor-pointer">
+              <Link
+                href={link.href}
+                className="cursor-pointer"
+                key={crypto.randomUUID()}
+              >
                 {link.title}
               </Link>
             </li>
