@@ -36,12 +36,8 @@ export default function Header() {
       <nav className="hidden xl:flex">
         <ul className="gap-x-10 flex text-sm tracking-widest text-white">
           {links.map((link) => (
-            <li>
-              <Link
-                href={link.href}
-                className="cursor-pointer"
-                key={crypto.randomUUID()}
-              >
+            <li key={crypto.randomUUID()}>
+              <Link href={link.href} className="cursor-pointer">
                 {link.title}
               </Link>
             </li>

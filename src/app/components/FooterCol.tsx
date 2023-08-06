@@ -14,7 +14,7 @@ export default function FooterCol(props: { title: string; links: Link[] }) {
         </h3>
         <ul className="flex flex-col gap-y-2 text-[#787878]">
           {props.links.map((link) => (
-            <li>
+            <li key={crypto.randomUUID()}>
               <Link href={link.href}>{link.title}</Link>
             </li>
           ))}
