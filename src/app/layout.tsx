@@ -1,6 +1,7 @@
 import "~/app/assets/globals.css";
 import type { Metadata } from "next";
 import Header from "~/app/components/Header";
+import Footer from "~/app/components/Footer";
 
 export const metadata: Metadata = {
   title: "Colnago.sk",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body className="relative">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
