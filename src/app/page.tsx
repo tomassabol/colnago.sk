@@ -1,5 +1,8 @@
 import ButtonReusable from "~/app/components/Buttons/ButtonReusable";
-import MainImage from "~app/assets/images/colnago.jpg";
+import Image from "next/image";
+import OldImage from "~/app/assets/images/whycol.jpg";
+import WhyColnago from "~/app/components/WhyColnago";
+
 export default function Home() {
   return (
     <>
@@ -56,6 +59,11 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </section>
+
+        <section className="flex flex-col xl:flex-row justify-center items-center w-full p-24 xl:h-[95vh] h-fit bg-white gap-12">
+          <WhyColnago />
+          <Image src={OldImage} alt="old colnago bike" priority />
         </section>
       </main>
     </>
