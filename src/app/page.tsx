@@ -12,7 +12,7 @@ export default function Home() {
               'linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)) 0% 0% / cover, url("https://cdn.myshoptet.com/usr/www.colnago.cz/user/banners/c68.jpg?64413bd0") center 100% no-repeat transparent',
           }}
         >
-          <div className="relative w-screen h-fit">
+          <div className="relative w-screen h-full">
             <div className="absolute bottom-[30vh] left-40 md:w-1/2 xl:w-1/4">
               <div className="pb-10">
                 <h3>Colnago</h3>
