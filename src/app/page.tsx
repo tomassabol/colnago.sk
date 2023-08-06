@@ -25,12 +25,36 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col w-full h-screen text-black">
-          <div className="border-b-[0.5px] border-slate-900 w-screen py-10 flex justify-center relative">
+        <section className="flex flex-col w-screen h-screen text-black">
+          <div className="border-b-[0.5px] border-slate-300 w-screen py-10 flex justify-center relative">
             <span className="absolute bottom-[-1px] border-b-[1.5px] border-[#b59251] w-[10rem]" />
             <span className="absolute bottom-[8px] text-center text-[#b59251] text-xs uppercase tracking-widest">
               Bicykle Colnago
             </span>
+          </div>
+        </section>
+
+        <section className="flex flex-col items-center w-full h-[63.5vh] bg-black relative">
+          <iframe
+            width="853"
+            height="480"
+            className="absolute -top-10 right-50 left-50"
+            src={`https://www.youtube.com/embed/ZszhknJukdk`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Embedded youtube"
+          />
+          <div className="flex flex-col absolute bottom-16">
+            <h3 className="font-bold text-3xl italic">
+              Postavené ručne, stvorené tam kde všetko začalo
+            </h3>
+            <div className="flex items-center gap-x-2">
+              <span className="border-b-[1.5px] border-[#b59251] w-[2rem]" />
+              <p className="text-[#b59251] text-sm uppercase tracking-widest">
+                COLNAGO ERNESTO & C. SRL, VIALE BRIANZA, 9, 20040 CAMBIAGO MI,
+                TALIANSKO
+              </p>
+            </div>
           </div>
         </section>
       </main>
