@@ -7,6 +7,7 @@ export default function Footer() {
         {/* bicykle */}
         <FooterCol
           title="Bicykle"
+          titleLink="/bicykle"
           links={[
             { title: "Cestné", href: "/" },
             { title: "Allroad", href: "/" },
@@ -20,6 +21,7 @@ export default function Footer() {
         {/* Colnago */}
         <FooterCol
           title="Colnago"
+          titleLink="/"
           links={[
             { title: "História", href: "/" },
             { title: "Technológie", href: "/" },
@@ -32,6 +34,7 @@ export default function Footer() {
         {/* Kontaktujte nás */}
         <FooterCol
           title="Kontakt"
+          titleLink="/"
           links={[
             { title: "Predajne", href: "/" },
             { title: "Napíšte nám", href: "/" },
