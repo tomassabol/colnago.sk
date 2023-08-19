@@ -4,12 +4,12 @@ import { appRouter } from "~/server/routers/_app";
 const panelHandler = () => {
   return new Response(
     renderTrpcPanel(appRouter, {
-      url: "http://localhost:3000/api/trpc",
+      url: "http://localhost:3000/api/panel",
       transformer: "superjson",
     }),
     {
       headers: { "Content-Type": "text/html" },
-    }
+    },
   );
 };
 

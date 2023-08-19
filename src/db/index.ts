@@ -4,5 +4,5 @@ import { env } from "../../env.mjs";
 
 neonConfig.fetchConnectionCache = true;
 
-const sql = neon(env.DB!);
-export const db = drizzle(sql);
+const connection = neon(env.DB!);
+export const db = drizzle(connection);

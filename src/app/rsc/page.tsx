@@ -1,4 +1,3 @@
-import { api } from "~/trpc/server-http";
 import { Suspense } from "react";
 import { ServerHttpGreeting } from "./ServerHttpGreeting";
 import { ServerInvokedGreeting } from "./ServerInvokedGreeting";

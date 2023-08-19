@@ -1,46 +1,14 @@
-import { z } from "zod";
+import { db } from "~/db";
+import { bikes } from "~/db/schema";
 import { publicProcedure, router } from "../trpc";
 
-let latestPost = {
-  id: 0,
-  title: "latest post",
-  content: "hello world",
-  createdAt: new Date(),
-};
-
-export const createPost = publicProcedure
-  .input(
-    z.object({
-      title: z.string(),
-      content: z.string(),
-    })
-  )
-  .mutation(async (opts) => {
-    latestPost = {
-      id: latestPost.id + 1,
-      createdAt: new Date(),
-      ...opts.input,
-    };
-
-    return latestPost;
-  });
-
 export const appRouter = router({
-  greeting: publicProcedure
-    .input(
-      z.object({
-        text: z.string(),
-      })
-    )
-    .query(async (opts) => {
-      console.log("request from", opts.ctx.headers?.["x-trpc-source"]);
-      return `hello ${opts.input.text} - ${Math.random()}`;
-    }),
-
-  createPost,
-
-  getLatestPost: publicProcedure.query(async () => {
-    return latestPost;
+  getBikes: publicProcedure.query(async () => {
+    const res = await db.select().from(bikes);
+    return res;
+  }),
+  greeting: publicProcedure.query(() => {
+    return "Hello, world!";
   }),
 });
 

@@ -1,15 +1,8 @@
-// schema
-import { pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
-import { InferModel } from "drizzle-orm";
+import { pgTable, text, uuid } from "drizzle-orm/pg-core";
 
-/**
- * This is a sample schema.
- * Replace this with your own schema.
- */
-
-export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  fullName: text("full_name"),
-  phone: varchar("phone", { length: 256 }),
+export const bikes = pgTable("bike", {
+  id: uuid("id").primaryKey(),
+  name: text("name"),
+  description: text("description"),
+  image: text("image"),
 });
-export type User = InferModel<typeof users>;
