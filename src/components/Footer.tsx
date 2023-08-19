@@ -1,11 +1,9 @@
-import React from "react";
-import Link from "next/link";
 import FooterCol from "./FooterCol";
 
 export default function Footer() {
   return (
     <>
-      <footer className="flex justify-evenly items-start w-screen h-[35vh] bg-gray-950 text-sm lg:px-44 md:px-16 px-2 py-16">
+      <footer className="flex h-full w-screen flex-col items-center justify-evenly gap-10 bg-gray-950 py-20 text-sm lg:flex-row lg:items-start lg:gap-0">
         {/* bicykle */}
         <FooterCol
           title="Bicykle"

@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "~/app/assets/images/colnago-logo.svg";
-import Menu from "~/app/assets/images/burger-menu.svg";
+import Logo from "~/assets/images/colnago-logo.svg";
+import Menu from "~/assets/images/burger-menu.svg";
 import Image from "next/image";
 import Link from "next/link";
 
