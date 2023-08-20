@@ -15,6 +15,16 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.myshoptet.com',
+        port: '',
+        // pathname: '/account123/**',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

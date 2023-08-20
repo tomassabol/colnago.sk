@@ -12,13 +12,6 @@ export default function Header() {
     href: string;
   };
 
-  const style = twMerge(
-    "flex h-[7rem] w-screen items-center justify-between  px-10",
-    usePathname() === "/"
-      ? "absolute z-50 bg-gradient-to-b from-gray-900 to-transparent"
-      : "static",
-  );
-
   const links: Link[] = [
     { title: "Domov", href: "/" },
     { title: "Bicykle", href: "/bicykle" },
@@ -28,7 +21,13 @@ export default function Header() {
   ];
   console.log();
   return (
-    <header className={style}>
+    <header
+      className={twMerge(
+        usePathname().length === 1
+          ? "absolute z-50 flex h-[7rem] w-screen items-center justify-between bg-gradient-to-b from-gray-900 to-transparent  px-10"
+          : "static flex h-[7rem] w-screen items-center justify-between  px-10",
+      )}
+    >
       <Image
         src={Menu}
         alt="Menu"

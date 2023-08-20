@@ -9,16 +9,16 @@ export default function BreadCrumbNav() {
 
   return (
     <>
-      <section className="text-md flex items-center gap-2 p-5 font-medium">
+      <section className="text-md flex items-center gap-2 font-medium">
         <Link href="/">
           <HomeIcon />
         </Link>
-        <ChevronRightIcon />
         {routes.map((route, index) => {
           return (
-            <Link key={index} href={route}>
-              {route}
-            </Link>
+            <div className="flex items-center gap-2" key={index}>
+              <ChevronRightIcon />
+              <Link href={"/" + route}>{route}</Link>
+            </div>
           );
         })}
       </section>
