@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { db } from "~/db";
-import { bikes } from "~/db/schema";
+import { bikeDetails, bikes } from "~/db/schema";
 import { publicProcedure, router } from "../trpc";
 
 export const appRouter = router({
@@ -24,7 +24,8 @@ export const appRouter = router({
         .select()
         .from(bikes)
         .where(eq(bikes.slug, opts.input.slug))
-        .limit(1);
+        .limit(1)
+        .rightJoin(bikeDetails, eq(bikes.bikeDetails, bikeDetails.id));
       return res[0];
     }),
 });

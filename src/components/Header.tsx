@@ -2,16 +2,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { twMerge } from "tailwind-merge";
+import { useEffect, useState } from "react";
 import Menu from "~/assets/images/burger-menu.svg";
 import Logo from "~/assets/images/colnago-logo.svg";
 
 export default function Header() {
+  const pathname = usePathname();
+  const [variant, setVariant] = useState<string>("");
+  useEffect(() => {
+    const newVariant =
+      pathname === "/" || pathname.match(/\//g)?.length === 2
+        ? "absolute z-50 flex h-[7rem] w-screen items-center justify-between bg-gradient-to-b from-gray-900 to-transparent px-10"
+        : "static flex h-[7rem] w-screen items-center justify-between px-10";
+
+    setVariant(newVariant);
+  }, [pathname]);
+
   type Link = {
     title: string;
     href: string;
   };
-
   const links: Link[] = [
     { title: "Domov", href: "/" },
     { title: "Bicykle", href: "/bicykle" },
@@ -21,13 +31,7 @@ export default function Header() {
   ];
   console.log();
   return (
-    <header
-      className={twMerge(
-        usePathname().length === 1
-          ? "absolute z-50 flex h-[7rem] w-screen items-center justify-between bg-gradient-to-b from-gray-900 to-transparent  px-10"
-          : "static flex h-[7rem] w-screen items-center justify-between  px-10",
-      )}
-    >
+    <header className={variant}>
       <Image
         src={Menu}
         alt="Menu"

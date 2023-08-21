@@ -19,6 +19,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname:  'www.colnago.cz',
+        port: '',
+      },
+      {
+        protocol: 'https',
         hostname: 'cdn.myshoptet.com',
         port: '',
         // pathname: '/account123/**',

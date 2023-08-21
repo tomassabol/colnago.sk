@@ -17,7 +17,16 @@ export default function BreadCrumbNav() {
           return (
             <div className="flex items-center gap-2" key={index}>
               <ChevronRightIcon />
-              <Link href={"/" + route}>{route}</Link>
+              <Link
+                href={
+                  "/" +
+                  (routes.indexOf(route) === 0
+                    ? route
+                    : routes[index - 1] + "/" + route)
+                }
+              >
+                {route}
+              </Link>
             </div>
           );
         })}
