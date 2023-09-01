@@ -32,9 +32,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <BreadCrumbNav />
             <div className="space-y-10 pb-10">
               <p className="text-5xl font-extrabold italic">
-                {bike.bike?.name}
+                {bike?.bike?.name}
               </p>
-              <p>{bike.bike?.description}</p>
+              <p>{bike?.bike?.description}</p>
             </div>
           </div>
         </div>
