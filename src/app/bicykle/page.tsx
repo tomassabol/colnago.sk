@@ -1,11 +1,11 @@
 import BikeCard from "~/components/BikeCard/BikeCard";
 import BreadCrumbNav from "~/components/BreadCrumbNav";
-import { api } from "~/trpc/server-http";
+import { trpc } from "~/trpc/serverClient";
 
 export default async function Page() {
-  const bikes = await api.getBikes.query();
+  const bikes = await trpc.bikes.getBikes();
   await new Promise((resolve) => {
-    setTimeout(resolve, 3000);
+    setTimeout(resolve, 1000);
   });
 
   return (

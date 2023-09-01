@@ -1,5 +1,5 @@
 import BreadCrumbNav from "~/components/BreadCrumbNav";
-import { api } from "~/trpc/server-http";
+import { trpc } from "~/trpc/serverClient";
 
 export function generateStaticParams() {
   return [
@@ -18,13 +18,13 @@ export function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const bike = await api.getBikeBySlug.query({ slug: params.slug });
+  const bike = await trpc.bikes.getBikeBySlug({ slug: params.slug });
   return (
     <>
       <section
         className={"text-white, h-[85vh] w-full"}
         style={{
-          background: `url(${bike.bike_details.bg_image}) center 100% no-repeat `,
+          background: `url('https://s3.eu-west-1.amazonaws.com/colnago.sk/c68/c63_bck.jpg') center 100% no-repeat `,
         }}
       >
         <div className="relative h-full w-screen">

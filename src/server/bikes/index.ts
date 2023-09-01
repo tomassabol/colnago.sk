@@ -4,7 +4,7 @@ import { db } from "~/db";
 import { bikeDetails, bikes } from "~/db/schema";
 import { publicProcedure, router } from "../trpc";
 
-export const appRouter = router({
+export const bikeRouter = router({
   getBikes: publicProcedure.query(async () => {
     const res = await db
       .select({
@@ -30,4 +30,4 @@ export const appRouter = router({
     }),
 });
 
-export type AppRouter = typeof appRouter;
+export type AppRouter = typeof bikeRouter;

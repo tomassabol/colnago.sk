@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Bike } from "~/db/schema";
 
-export default function BikeCard(props: { bike: Bike }) {
+export default function BikeCard(props: { bike: Partial<Bike> }) {
   return (
     <>
       <Link
