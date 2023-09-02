@@ -5,6 +5,8 @@ import TestRide from "~/assets/images/test-ride.jpeg";
 import OldImage from "~/assets/images/whycol.jpg";
 import ButtonReusable from "~/components/Buttons/ButtonReusable";
 import Card from "~/components/Card";
+import Vimeo from "~/components/Vimeo";
+import VimeoDescription from "~/components/VimeoDescription";
 import WhyColnago from "~/components/WhyColnago";
 
 export default function Home() {
@@ -40,25 +42,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="relative flex h-[63.5vh] w-full flex-col items-center bg-gray-950">
-          {/* <iframe
-            className="right-50 left-50 absolute -top-10 h-[45vh] w-full xl:h-[480px] xl:w-[853px]"
-            src={`https://www.youtube.com/embed/ZszhknJukdk`}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title="Embedded youtube"
-          /> */}
-          <div className="absolute bottom-12 flex flex-col px-4 xl:bottom-16">
-            <h3 className="text-2xl font-bold italic xl:text-3xl">
-              Postavené ručne, stvorené tam kde všetko začalo
-            </h3>
-            <div className="flex items-center gap-x-2">
-              <span className="w-[2rem] border-b-[1.5px] border-[#b59251]" />
-              <p className="text-xs uppercase tracking-widest text-[#b59251] lg:text-sm">
-                COLNAGO ERNESTO & C. SRL, VIALE BRIANZA, 9, 20040 CAMBIAGO MI,
-                TALIANSKO
-              </p>
-            </div>
+        <section className="relative h-[63vh] bg-gray-950">
+          <div className="absolute -top-24 w-full px-[20vw]">
+            <Vimeo src="https://player.vimeo.com/video/822807364?h=ca735158f1&title=0&byline=0&portrait=0">
+              <VimeoDescription
+                title="Postaveno ručně, stvořeno tam kde vše začalo"
+                description="COLNAGO ERNESTO & C. SRL, VIALE BRIANZA, 9, 20040 CAMBIAGO MI, ITÁLIE"
+              />
+            </Vimeo>
           </div>
         </section>
 
