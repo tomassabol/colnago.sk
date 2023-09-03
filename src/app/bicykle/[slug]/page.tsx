@@ -1,7 +1,9 @@
+import Cyclist from "~/assets/images/z9b_2583_optimized.jpg";
+import BikeDescription from "~/components/BikeDetails/BikeDescription";
+import BikeHeroPage from "~/components/BikeDetails/BikeHeroPage";
+import BikeVideo from "~/components/BikeDetails/BikeVideo";
 import BreadCrumbNav from "~/components/BreadCrumbNav";
 import Spacer from "~/components/Spacer";
-import Vimeo from "~/components/Vimeo";
-import VimeoDescription from "~/components/VimeoDescription";
 import { trpc } from "~/trpc/serverClient";
 
 export function generateStaticParams() {
@@ -42,21 +44,50 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </section>
-      <section className="h-min-screen min-h-[58vh] w-screen space-y-5 bg-slate-50 p-10 text-slate-950 ">
+      {bike?.bike ? <BikeHeroPage bike={bike?.bike} /> : null}
+
+      <section className="w-screen space-y-5 bg-slate-50 p-10 text-slate-950 ">
         <section className="h-screen"></section>
+
         <Spacer />
-        <section className="md:h-[80vh] lg:h-screen">
-          <h3 className="py-4 pb-8 text-4xl font-medium text-[#b59251]">
-            Video
-          </h3>
-          <Vimeo src="https://player.vimeo.com/video/822807364?h=ca735158f1&title=0&byline=0&portrait=0">
-            <VimeoDescription
-              title="Objavte nové colnago"
-              description="NOVÝ VRCHOL ITALSKÉHO CYKLISTICKÉHO ŘEMESLA"
-            />
-          </Vimeo>
+
+        <BikeVideo
+          video="https://player.vimeo.com/video/822807364?h=ca735158f1&title=0&byline=0&portrait=0"
+          title="Objavte nové colnago"
+          description="NOVÝ VRCHOL ITALSKÉHO CYKLISTICKÉHO ŘEMESLA"
+        />
+
+        <BikeDescription
+          title="Precizní zpracování, špičková jízda"
+          description="Colnago C68, jak číslo naznačuje, je model vytvořený 68 let od
+            založení firmy. Model C68 je opět ručně vyráběný z karbonu, v
+            továrně Colnago v Cambiagu, Itálii, a představuje skutečně class,
+            tedy třídu samu pro sebe. Model C68 je nadále rámem pro cyklisty,
+            kteří ocení špičkové dílenské i designové zpracování a lakování a
+            fascinuje je technologická výjimečnost. U rámu C68 je použit stejný
+            počet spojek jako u modelu C64, jsou však jinak uspořádány a
+            konstruovány. Skladba rámu ze sedmi částí umožňuje vytvořit sedm
+            různých dílů, kdy každý Colnago vyrábí pomocí vlastního
+            technologického postupu. Ten umožňuje docílit nejen vyššího tlaku na
+            karbon, ale i každý díl precizně tvarovat a dosáhnout kýžené
+            konstrukční pevnosti. Jelikož jsou formy menší, je nad procesem
+            laminace lepší kontrola. Této volnosti nelze při konstrukci
+            monocoque rámů docílit. Důležitou myšlenkou vylepšení již tak
+            skvělých vlastností je propojení některých součástí – konkrétně
+            trubek se spojkami do jednoho celku. Nově je tak prakticky z jednoho
+            kusu horní rámová roura a vrchní část hlavy, spodní část hlavy
+            pokračuje spodní rámovou trubkou ke středu a podobně. Středové
+            složení je nyní ve standardu T47. I u tohoto modelu je důraz více
+            kladen na bezpečnost jezdců a stálost pevnosti konstrukce v čase.
+            Hmotnost rámu je 925 gramů (velikost 485 bez kovových doplňků)."
+          image={Cyclist.src}
+        />
+
+        <Spacer />
+
+        <section className="h-screen">
+          <span className="h-max text-red-200">{JSON.stringify(bike)}</span>
         </section>
-        <span className="h-max">{JSON.stringify(bike)}</span>
       </section>
     </>
   );
