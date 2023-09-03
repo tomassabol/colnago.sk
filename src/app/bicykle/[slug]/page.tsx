@@ -1,5 +1,6 @@
 import Cyclist from "~/assets/images/z9b_2583_optimized.jpg";
 import BikeDescription from "~/components/BikeDetails/BikeDescription";
+import BikeGeometry from "~/components/BikeDetails/BikeGeometry";
 import BikeHeroPage from "~/components/BikeDetails/BikeHeroPage";
 import BikeVideo from "~/components/BikeDetails/BikeVideo";
 import Spacer from "~/components/Spacer";
@@ -64,6 +65,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           image={Cyclist.src}
         />
 
+        <Spacer />
+        <BikeGeometry />
         <Spacer />
 
         <section className="h-screen">

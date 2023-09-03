@@ -1,7 +1,7 @@
 import Vimeo from "../Vimeo";
 import VimeoDescription from "../VimeoDescription";
 
-export default function BikeVideo({
+export default async function BikeVideo({
   video,
   title,
   description,

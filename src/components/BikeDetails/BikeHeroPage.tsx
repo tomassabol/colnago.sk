@@ -1,7 +1,7 @@
 import { Bike } from "~/db/schema";
 import BreadCrumbNav from "../BreadCrumbNav";
 
-export default function BikeHeroPage({ bike }: { bike: Bike }) {
+export default async function BikeHeroPage({ bike }: { bike: Bike }) {
   return (
     <>
       <section
