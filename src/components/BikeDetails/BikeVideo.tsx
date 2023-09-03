@@ -1,3 +1,4 @@
+import Heading from "../Heading";
 import Vimeo from "../Vimeo";
 import VimeoDescription from "../VimeoDescription";
 
@@ -13,7 +14,7 @@ export default async function BikeVideo({
   return (
     <>
       <section className="h-[120vh]">
-        <h3 className="py-4 pb-8 text-4xl font-medium text-[#b59251]">Video</h3>
+        <Heading>Video</Heading>
         <section className="relative h-full">
           <div className="absolute w-full">
             <Vimeo src={video}>

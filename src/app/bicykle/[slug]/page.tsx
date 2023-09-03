@@ -2,6 +2,7 @@ import Cyclist from "~/assets/images/z9b_2583_optimized.jpg";
 import BikeDescription from "~/components/BikeDetails/BikeDescription";
 import BikeGeometry from "~/components/BikeDetails/BikeGeometry";
 import BikeHeroPage from "~/components/BikeDetails/BikeHeroPage";
+import BikePerformance from "~/components/BikeDetails/BikePerformance";
 import BikeVideo from "~/components/BikeDetails/BikeVideo";
 import Spacer from "~/components/Spacer";
 import { trpc } from "~/trpc/serverClient";
@@ -28,7 +29,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <>
       {bike?.bike ? <BikeHeroPage bike={bike?.bike} /> : null}
 
-      <section className="w-screen space-y-5 bg-slate-50 p-10 text-slate-950 ">
+      <section className="w-screen space-y-5 bg-slate-50 p-10 pb-28 text-slate-950">
         <section className="h-screen"></section>
 
         <Spacer />
@@ -68,10 +69,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <Spacer />
         <BikeGeometry />
         <Spacer />
-
-        <section className="h-screen">
-          <span className="h-max text-red-200">{JSON.stringify(bike)}</span>
-        </section>
+        <BikePerformance />
       </section>
     </>
   );

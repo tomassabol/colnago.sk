@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Heading from "../Heading";
 
 export default async function BikeDescription({
   title,
@@ -17,9 +18,7 @@ export default async function BikeDescription({
         </div>
 
         <div className="border-gray-950 py-10 lg:w-1/2 lg:border-t">
-          <h3 className="py-4 pb-8 text-4xl font-medium italic text-[#b59251]">
-            {title}
-          </h3>
+          <Heading>{title}</Heading>
           <p>{description}</p>
         </div>
       </section>
