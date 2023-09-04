@@ -1,5 +1,6 @@
 import Cyclist from "~/assets/images/z9b_2583_optimized.jpg";
 import BikeDescription from "~/components/BikeDetails/BikeDescription";
+import BikeDetails from "~/components/BikeDetails/BikeDetails";
 import BikeGeometry from "~/components/BikeDetails/BikeGeometry";
 import BikeHeroPage from "~/components/BikeDetails/BikeHeroPage";
 import BikePerformance from "~/components/BikeDetails/BikePerformance";
@@ -68,6 +69,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         <Spacer />
         <BikeGeometry />
+        <Spacer />
+        <BikeDetails />
         <Spacer />
         <BikePerformance />
       </section>
