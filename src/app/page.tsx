@@ -9,7 +9,8 @@ import Vimeo from "~/components/Vimeo";
 import VimeoDescription from "~/components/VimeoDescription";
 import WhyColnago from "~/components/WhyColnago";
 
-export default function Home() {
+export default async function Home() {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return (
     <>
       <main className="flex w-screen flex-col bg-white">

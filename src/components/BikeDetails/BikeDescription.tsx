@@ -12,7 +12,10 @@ export default async function BikeDescription({
 }) {
   return (
     <>
-      <section className="flex flex-col gap-20 lg:flex-row">
+      <section
+        id="bike-description"
+        className="flex flex-col gap-20 lg:flex-row"
+      >
         <div className="lg:w-1/2">
           <Image src={image} width={1200} height={960} alt="cyclist" />
         </div>

@@ -6,7 +6,10 @@ export default async function BikePerformance() {
   return (
     <>
       <Heading>Výkon</Heading>
-      <section className="flex flex-col gap-12 lg:flex-row">
+      <section
+        id="bike-performance"
+        className="flex flex-col gap-12 lg:flex-row"
+      >
         <BikePerformanceCard
           image={DetailImage.src}
           title="rám"

@@ -10,7 +10,7 @@ export default function BikeDetails() {
   return (
     <>
       <Heading>Detaily</Heading>
-      <section className="flex flex-col gap-10">
+      <section id="bike-details" className="flex flex-col gap-10">
         <div className="flex w-full justify-center uppercase">
           {headings.map((heading, index) => (
             <label

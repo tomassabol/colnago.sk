@@ -13,7 +13,10 @@ export default async function BikeVideo({
 }) {
   return (
     <>
-      <section className="h-[120vh]">
+      <section
+        id="bike-video"
+        className="xl:[150vh] h-[60vh] sm:h-[70vh] md:h-[85vh] lg:h-[120vh]"
+      >
         <Heading>Video</Heading>
         <section className="relative h-full">
           <div className="absolute w-full">

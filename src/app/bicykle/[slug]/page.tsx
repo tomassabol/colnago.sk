@@ -26,12 +26,13 @@ export function generateStaticParams() {
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const bike = await trpc.bikes.getBikeBySlug({ slug: params.slug });
+
   return (
     <>
       {bike?.bike ? <BikeHeroPage bike={bike?.bike} /> : null}
 
       <section className="w-screen space-y-5 bg-slate-50 p-10 pb-28 text-slate-950">
-        <section className="h-screen"></section>
+        <section className="h-screen" />
 
         <Spacer />
 
@@ -68,10 +69,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
         />
 
         <Spacer />
+
         <BikeGeometry />
+
         <Spacer />
+
         <BikeDetails />
+
         <Spacer />
+
         <BikePerformance />
       </section>
     </>

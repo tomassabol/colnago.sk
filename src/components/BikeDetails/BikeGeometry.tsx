@@ -7,7 +7,7 @@ import SizeSelector from "./SizeSelector";
 export default function BikeGeometry() {
   return (
     <>
-      <section className="flex flex-col gap-20 lg:flex-row">
+      <section id="bike-geometry" className="flex flex-col gap-20 lg:flex-row">
         <div className="flex flex-col gap-y-5 lg:w-1/2">
           <Image src={Geometry} width={1200} height={960} alt="cyclist" />
           <div>
