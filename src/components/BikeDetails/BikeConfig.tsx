@@ -8,7 +8,10 @@ import ImageCarousel from "./ImageCarousel";
 export default function BikeConfig() {
   return (
     <>
-      <section id="bike-config" className="flex w-full gap-x-10">
+      <section
+        id="bike-config"
+        className="flex w-full flex-col gap-y-10 lg:flex-wrap lg:gap-x-10"
+      >
         <ImageCarousel />
         <div className="flex w-full flex-col gap-y-2">
           <Heading>C68</Heading>

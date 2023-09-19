@@ -11,7 +11,7 @@ import "~/assets/styles/swiper.css";
 export default function ImageCarousel() {
   return (
     <>
-      <div className="flex h-fit lg:w-1/2">
+      <div className="flex h-fit w-full lg:w-1/2">
         <Swiper
           className="rounded-xl border shadow-sm"
           modules={[Navigation, Pagination, Keyboard]}
