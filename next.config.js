@@ -26,8 +26,12 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cdn.myshoptet.com',
         port: '',
-        // pathname: '/account123/**',
       },
+      {
+        protocol: 'https',
+        hostname: 's3.eu-west-1.amazonaws.com',
+        port: '',
+      }
     ],
   },
 };
