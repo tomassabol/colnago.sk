@@ -1,11 +1,11 @@
 import Cyclist from "~/assets/images/z9b_2583_optimized.jpg";
+import BikeConfig from "~/components/BikeDetails/BikeConfig";
 import BikeDescription from "~/components/BikeDetails/BikeDescription";
 import BikeDetails from "~/components/BikeDetails/BikeDetails";
 import BikeGeometry from "~/components/BikeDetails/BikeGeometry";
 import BikeHeroPage from "~/components/BikeDetails/BikeHeroPage";
 import BikePerformance from "~/components/BikeDetails/BikePerformance";
 import BikeVideo from "~/components/BikeDetails/BikeVideo";
-import ImageCarousel from "~/components/BikeDetails/ImageCarousel";
 import Spacer from "~/components/Spacer";
 import { trpc } from "~/trpc/serverClient";
 
@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       {bike?.bike ? <BikeHeroPage bike={bike?.bike} /> : null}
 
       <section className="w-screen space-y-5 bg-slate-50 p-10 pb-28 text-slate-950">
-        <ImageCarousel />
+        <BikeConfig />
 
         <Spacer />
 
