@@ -29,7 +29,6 @@ export default function Header() {
     { title: "Blog", href: "/" },
     { title: "Kontakty", href: "/" },
   ];
-  console.log();
   return (
     <header className={variant}>
       <Image

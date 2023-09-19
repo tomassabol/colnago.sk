@@ -1,3 +1,4 @@
+"use client";
 import Color from "../Color";
 import FrameSize from "../FrameSize";
 import Groupset from "../Groupset";
@@ -10,10 +11,10 @@ export default function BikeConfig() {
     <>
       <section
         id="bike-config"
-        className="flex w-full flex-col gap-y-10 lg:flex-wrap lg:gap-x-10"
+        className="flex w-full flex-col gap-y-10 lg:flex-row lg:flex-wrap lg:gap-x-10"
       >
         <ImageCarousel />
-        <div className="flex w-full flex-col gap-y-2">
+        <div className="w-full flex-col gap-y-2 lg:w-max">
           <Heading>C68</Heading>
           <h6>Vrchol umění Colnago, ručně vyrobeno v Itálii</h6>
 
@@ -51,12 +52,8 @@ export default function BikeConfig() {
                   "Shimano Dura Ace C50 DB",
                   "Fulcrum Racing Wind 400 DB",
                   "Zipp 303 Firecrest",
-                  "Fulcrum Racing Wind DB",
                   "Fulcrum Racing 600 DB",
                   "Fulcrum Racing Wind DB",
-                  "Fulcrum Racing 600 DB",
-                  "Fulcrum Racing Wind DB",
-                  "Fulcrum Racing 600 DB",
                 ]}
               />
             </li>
