@@ -22,7 +22,7 @@ export default async function Home() {
           }}
         >
           <div className="relative h-full w-screen">
-            <div className="absolute bottom-[30vh] left-6 md:w-1/2 xl:left-40 xl:w-1/4">
+            <div className="absolute bottom-[30vh] left-12 md:w-1/2 xl:left-40 xl:w-1/4">
               <div className="pb-10">
                 <h3>Colnago</h3>
                 <p className="text-5xl font-extrabold italic">

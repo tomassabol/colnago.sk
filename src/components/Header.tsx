@@ -25,9 +25,7 @@ export default function Header() {
   const links: Link[] = [
     { title: "Domov", href: "/" },
     { title: "Bicykle", href: "/bicykle" },
-    { title: "Eventy", href: "/" },
-    { title: "Blog", href: "/" },
-    { title: "Kontakty", href: "/" },
+    { title: "Kontakt", href: "/" },
   ];
   return (
     <header className={variant}>
