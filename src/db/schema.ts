@@ -15,9 +15,7 @@ export const bikes = pgTable("bike", {
   name: text("name"),
   description: text("description"),
   image: text("image"),
-  bikeDetails: serial("bike_details")
-    .unique()
-    .references(() => bikeDetails.id),
+  bikeDetails: serial("bike_details"),
 });
 export type Bike = InferModel<typeof bikes>;
 export const bikeRelations = relations(bikes, ({ one }) => ({
@@ -31,7 +29,6 @@ export const bikeRelations = relations(bikes, ({ one }) => ({
 export const bikeDetails = pgTable("bike_details", {
   id: serial("id").primaryKey().unique(),
   bg_image: text("bg_image"),
-  colors: serial("colors"),
 });
 export type BikeDetails = InferModel<typeof bikeDetails>;
 export const bikeDetailsRelations = relations(bikeDetails, ({ one, many }) => ({

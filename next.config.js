@@ -30,6 +30,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 's3.eu-west-1.amazonaws.com',
         port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'uploadthing-prod.s3.us-west-2.amazonaws.com/',
+        port: '',
       }
     ],
   },

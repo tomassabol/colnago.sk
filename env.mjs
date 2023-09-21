@@ -29,6 +29,8 @@ export const env = createEnv({
     // NODE_ENV: process.env.NODE_ENV,
     DB: process.env.DB,
     VERCEL_URL: process.env.VERCEL_URL,
+    UPLOADTHING_SECRET: process.env.UPLOADTHING_SECRET,
+    UPLOADTHING_APP_ID: process.env.UPLOADTHING_APP_ID,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

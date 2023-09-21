@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ColnagoBG from "~/assets/images/colnago.jpg";
 import Predajna from "~/assets/images/prodejna.jpg";
 import TestRide from "~/assets/images/test-ride.jpeg";
 import OldImage from "~/assets/images/whycol.jpg";
@@ -18,7 +17,7 @@ export default async function Home() {
           className="h-[85vh] w-full"
           style={{
             aspectRatio: "auto auto",
-            background: `linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)) 0% 0% / cover, url(${ColnagoBG.src}) center 100% no-repeat transparent`,
+            background: `linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)) 0% 0% / cover, url(https://uploadthing.com/f/f270abfd-9f7e-418e-ab49-ce9af6de7149-fpb3h7.jpg) center 100% no-repeat transparent`,
           }}
         >
           <div className="relative h-full w-screen">
@@ -33,6 +32,8 @@ export default async function Home() {
             </div>
           </div>
         </section>
+
+        {/* <FileUploader /> */}
 
         <section className="flex h-screen w-screen flex-col text-black">
           <div className="relative flex w-screen justify-center border-b-[0.5px] border-slate-300 py-10">
