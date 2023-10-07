@@ -1,4 +1,4 @@
-import { InferModel, relations } from "drizzle-orm";
+import { InferSelectModel, relations } from "drizzle-orm";
 import {
   integer,
   pgTable,
@@ -17,7 +17,7 @@ export const bikes = pgTable("bike", {
   image: text("image"),
   bikeDetails: serial("bike_details"),
 });
-export type Bike = InferModel<typeof bikes>;
+export type Bike = InferSelectModel<typeof bikes>;
 export const bikeRelations = relations(bikes, ({ one }) => ({
   bikeDetails: one(bikeDetails, {
     fields: [bikes.bikeDetails],
@@ -30,7 +30,7 @@ export const bikeDetails = pgTable("bike_details", {
   id: serial("id").primaryKey().unique(),
   bg_image: text("bg_image"),
 });
-export type BikeDetails = InferModel<typeof bikeDetails>;
+export type BikeDetails = InferSelectModel<typeof bikeDetails>;
 export const bikeDetailsRelations = relations(bikeDetails, ({ one, many }) => ({
   bikeDetailsToColors: many(bikeDetailsToColors),
   bikeDetailsToFrameSizes: many(bikeDetailsToFrameSizes),
@@ -70,7 +70,7 @@ export const bikeDetailsToColors = pgTable(
     pk: primaryKey(t.bikeDetailsId, t.bikeColorsId),
   }),
 );
-export type BikeDetailsToColors = InferModel<typeof bikeDetailsToColors>;
+export type BikeDetailsToColors = InferSelectModel<typeof bikeDetailsToColors>;
 export const bikeDetailsToColorsRelations = relations(
   bikeDetailsToColors,
   ({ one }) => ({
@@ -166,7 +166,7 @@ export const bikeColors = pgTable("bike_colors", {
   color: text("color"),
   image: text("image"),
 });
-export type BikeColor = InferModel<typeof bikeColors>;
+export type BikeColor = InferSelectModel<typeof bikeColors>;
 export const bikeColorsRelations = relations(bikeColors, ({ many }) => ({
   bikeDetailsToColors: many(bikeDetailsToColors),
 }));
@@ -177,7 +177,7 @@ export const frameSizes = pgTable("bike_sizes", {
   bikeId: uuid("bike_id").references(() => bikes.id),
   size: integer("size"),
 });
-export type FrameSize = InferModel<typeof frameSizes>;
+export type FrameSize = InferSelectModel<typeof frameSizes>;
 export const frameSizesRelations = relations(frameSizes, ({ many }) => ({
   bikeDetailsToFrameSizes: many(bikeDetailsToFrameSizes),
   frameSizes: many(bikeGeometry),
@@ -188,7 +188,7 @@ export const groupset = pgTable("groupset", {
   id: serial("id").primaryKey().unique(),
   name: text("name"),
 });
-export type Groupset = InferModel<typeof groupset>;
+export type Groupset = InferSelectModel<typeof groupset>;
 export const groupsetRelations = relations(groupset, ({ many }) => ({
   bikeDetailsToGroupsets: many(bikeDetailsToGroupsets),
 }));
@@ -198,7 +198,7 @@ export const wheels = pgTable("wheels", {
   id: serial("id").primaryKey().unique(),
   name: text("name"),
 });
-export type Wheel = InferModel<typeof wheels>;
+export type Wheel = InferSelectModel<typeof wheels>;
 export const wheelsRelations = relations(wheels, ({ many }) => ({
   bikeDetailsToWheels: many(bikeDetailsToWheels),
 }));
@@ -211,7 +211,7 @@ export const bikeVideo = pgTable("bike_video", {
   title: text("title"),
   description: text("description"),
 });
-export type BikeVideo = InferModel<typeof bikeVideo>;
+export type BikeVideo = InferSelectModel<typeof bikeVideo>;
 export const bikeVideoRelations = relations(bikeVideo, ({ one }) => ({
   bikeDetails: one(bikeDetails, {
     fields: [bikeVideo.bikeDetailsId],
@@ -226,7 +226,9 @@ export const bikeDetailsDescription = pgTable("bike_details_description", {
   title: text("title"),
   description: text("description"),
 });
-export type BikeDetailsDescription = InferModel<typeof bikeDetailsDescription>;
+export type BikeDetailsDescription = InferSelectModel<
+  typeof bikeDetailsDescription
+>;
 export const bikeDetailsDescriptionRelations = relations(
   bikeDetailsDescription,
   ({ one }) => ({
@@ -258,7 +260,7 @@ export const bikeGeometry = pgTable(
     pk: primaryKey(t.frameSizesId, t.bikeDetailsId),
   }),
 );
-export type BikeGeometry = InferModel<typeof bikeGeometry>;
+export type BikeGeometry = InferSelectModel<typeof bikeGeometry>;
 export const bikeGeometryRelations = relations(bikeGeometry, ({ one }) => ({
   frameSizes: one(frameSizes, {
     fields: [bikeGeometry.frameSizesId],
@@ -276,7 +278,7 @@ export const sizeGuide = pgTable("size_guide", {
   bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
   url: text("url"),
 });
-export type SizeGuide = InferModel<typeof sizeGuide>;
+export type SizeGuide = InferSelectModel<typeof sizeGuide>;
 export const sizeGuideRelations = relations(sizeGuide, ({ one }) => ({
   bikeDetails: one(bikeDetails, {
     fields: [sizeGuide.bikeDetailsId],
@@ -290,7 +292,7 @@ export const bikeDetailInfo = pgTable("bike_detail_info", {
   bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
   title: text("title"),
 });
-export type BikeDetailInfo = InferModel<typeof bikeDetailInfo>;
+export type BikeDetailInfo = InferSelectModel<typeof bikeDetailInfo>;
 export const bikeDetailInfoRelations = relations(
   bikeDetailInfo,
   ({ one, many }) => ({
@@ -317,7 +319,7 @@ export const bikeDetailInfoItem = pgTable(
     pk: primaryKey(t.bikeDetailInfoId, t.id),
   }),
 );
-export type BikeDetailInfoItem = InferModel<typeof bikeDetailInfoItem>;
+export type BikeDetailInfoItem = InferSelectModel<typeof bikeDetailInfoItem>;
 export const bikeDetailInfoItemRelations = relations(
   bikeDetailInfoItem,
   ({ one }) => ({
@@ -333,7 +335,7 @@ export const bikePerformance = pgTable("bike_performance", {
   id: serial("id").primaryKey().unique(),
   bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
 });
-export type BikePerformance = InferModel<typeof bikePerformance>;
+export type BikePerformance = InferSelectModel<typeof bikePerformance>;
 export const bikePerformanceRelations = relations(
   bikePerformance,
   ({ one, many }) => ({
@@ -361,7 +363,7 @@ export const bikePerformanceItem = pgTable(
     pk: primaryKey(t.bikePerformanceId, t.id),
   }),
 );
-export type BikePerformanceItem = InferModel<typeof bikePerformanceItem>;
+export type BikePerformanceItem = InferSelectModel<typeof bikePerformanceItem>;
 export const bikePerformanceItemRelations = relations(
   bikePerformanceItem,
   ({ one }) => ({

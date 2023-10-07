@@ -11,21 +11,40 @@ import { trpc } from "~/trpc/serverClient";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const bike = await trpc.bikes.getBikeBySlug({ slug: params.slug });
+  const bikeColors = await trpc.bikes.getBikeColors({
+    id: bike.bike_details.id,
+  });
+  const frameSizes = await trpc.bikes.getBikeSizes({
+    id: bike.bike_details.id,
+  });
+  const groupsets = await trpc.bikes.getBikeGroupsets({
+    id: bike.bike_details.id,
+  });
+  const wheels = await trpc.bikes.getBikeWheels({
+    id: bike.bike_details.id,
+  });
 
   return (
     <>
       {bike?.bike ? <BikeHeroPage bike={bike?.bike} /> : null}
 
       <section className="w-screen space-y-5 bg-slate-50 p-10 pb-28 text-slate-950">
-        <BikeConfig />
+        <BikeConfig
+          description={bike.bike?.description!}
+          colors={bikeColors}
+          frameSizes={frameSizes.map((framesize) => framesize.size!)}
+          groupsets={groupsets}
+        />
 
         <Spacer />
 
-        <BikeVideo
-          video="https://player.vimeo.com/video/822807364?h=ca735158f1&title=0&byline=0&portrait=0"
-          title="Objavte nové colnago"
-          description="NOVÝ VRCHOL ITALSKÉHO CYKLISTICKÉHO ŘEMESLA"
-        />
+        {bike.bike ? (
+          <BikeVideo
+            video="https://player.vimeo.com/video/822807364?h=ca735158f1&title=0&byline=0&portrait=0"
+            title="Objavte nové colnago"
+            description={bike.bike?.description!}
+          />
+        ) : null}
 
         <BikeDescription
           title="Precizní zpracování, špičková jízda"

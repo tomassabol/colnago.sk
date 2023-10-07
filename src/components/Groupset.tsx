@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
+import { Groupset } from "~/db/schema";
 
-export default function Groupset({ groupsets }: { groupsets: string[] }) {
+export default function Groupset({ groupsets }: { groupsets: Groupset[] }) {
   const [selectedGroupset, setSelectedGroupset] = useState(groupsets[0]);
   return (
     <>
@@ -14,10 +15,10 @@ export default function Groupset({ groupsets }: { groupsets: string[] }) {
                 ? " border-[#b59251]"
                 : " border-[#e5e5e5]")
             }
-            key={groupset}
+            key={groupset.id}
             onClick={() => setSelectedGroupset(groupset)}
           >
-            {groupset}
+            {groupset.name}
           </button>
         ))}
       </div>
