@@ -9,22 +9,6 @@ import BikeVideo from "~/components/BikeDetails/BikeVideo";
 import Spacer from "~/components/Spacer";
 import { trpc } from "~/trpc/serverClient";
 
-export function generateStaticParams() {
-  return [
-    { slug: "C68" },
-    { slug: "C68-allroad" },
-    { slug: "v4rs" },
-    { slug: "v3rs" },
-    { slug: "v3" },
-    { slug: "tt1" },
-    { slug: "master" },
-    { slug: "arabesque" },
-    { slug: "gr-x" },
-    { slug: "c68-ti" },
-    { slug: "c68-ltd" },
-  ];
-}
-
 export default async function Page({ params }: { params: { slug: string } }) {
   const bike = await trpc.bikes.getBikeBySlug({ slug: params.slug });
 
