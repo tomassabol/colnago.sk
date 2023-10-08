@@ -45,7 +45,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         <Spacer />
 
-        <BikeGeometry />
+        <BikeGeometry id={bike.bike_details.id} modelName={bike.bike?.name!} />
 
         <Spacer />
 

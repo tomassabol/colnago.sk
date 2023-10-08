@@ -9,6 +9,7 @@ import {
   bikeDetailsToFrameSizes,
   bikeDetailsToGroupsets,
   bikeDetailsToWheels,
+  bikeGeometry,
   bikeVideo,
   bikes,
   frameSizes,
@@ -151,6 +152,23 @@ export const bikeRouter = router({
           .from(bikeDetailsDescription)
           .where(eq(bikeDetailsDescription.bikeDetailsId, opts.input.id));
         return res[0];
+      } catch (e) {
+        throw new Error("Bike not found");
+      }
+    }),
+
+  // get bike geometry
+  getBikeGeometry: publicProcedure
+    .input(z.object({ id: z.number() }))
+    .query(async (opts) => {
+      try {
+        const res = await db
+          .select()
+          .from(bikeGeometry)
+          .where(eq(bikeGeometry.bikeDetailsId, opts.input.id))
+          .rightJoin(frameSizes, eq(bikeGeometry.frameSizesId, frameSizes.id));
+        console.log(res);
+        return res;
       } catch (e) {
         throw new Error("Bike not found");
       }

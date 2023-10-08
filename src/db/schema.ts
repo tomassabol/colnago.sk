@@ -246,6 +246,7 @@ export const bikeGeometry = pgTable(
   {
     frameSizesId: serial("frame_sizes_id").references(() => frameSizes.id),
     bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
+    // TODO: change all to decimal
     fork: integer("fork"),
     a: integer("a"),
     hs: integer("hs"),

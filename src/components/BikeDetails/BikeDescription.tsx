@@ -7,20 +7,15 @@ export default async function BikeDescription({ id }: { id: number }) {
     id,
   });
   return (
-    <>
-      <section
-        id="bike-description"
-        className="flex flex-col gap-20 lg:flex-row"
-      >
-        <div className="lg:w-1/2">
-          <Image src={Cyclist.src} width={1200} height={960} alt="cyclist" />
-        </div>
+    <section id="bike-description" className="flex flex-col gap-20 lg:flex-row">
+      <div className="lg:w-1/2">
+        <Image src={Cyclist.src} width={1200} height={960} alt="cyclist" />
+      </div>
 
-        <div className="border-gray-950 py-10 lg:w-1/2 lg:border-t">
-          <Heading>{detailsDescription.title}</Heading>
-          <p>{detailsDescription.description}</p>
-        </div>
-      </section>
-    </>
+      <div className="border-gray-950 py-10 lg:w-1/2 lg:border-t">
+        <Heading>{detailsDescription.title}</Heading>
+        <p>{detailsDescription.description}</p>
+      </div>
+    </section>
   );
 }
