@@ -4,10 +4,12 @@ import { db } from "~/db";
 import {
   bikeColors,
   bikeDetails,
+  bikeDetailsDescription,
   bikeDetailsToColors,
   bikeDetailsToFrameSizes,
   bikeDetailsToGroupsets,
   bikeDetailsToWheels,
+  bikeVideo,
   bikes,
   frameSizes,
   groupset,
@@ -119,6 +121,36 @@ export const bikeRouter = router({
           .where(eq(bikeDetailsToWheels.bikeDetailsId, opts.input.id))
           .rightJoin(wheels, eq(bikeDetailsToWheels.wheelsId, wheels.id));
         return res.map((wheels) => wheels.wheels);
+      } catch (e) {
+        throw new Error("Bike not found");
+      }
+    }),
+
+  // get bike video
+  getBikeVideo: publicProcedure
+    .input(z.object({ id: z.number() }))
+    .query(async (opts) => {
+      try {
+        const res = await db
+          .select()
+          .from(bikeVideo)
+          .where(eq(bikeVideo.bikeDetailsId, opts.input.id));
+        return res[0];
+      } catch (e) {
+        throw new Error("Bike not found");
+      }
+    }),
+
+  // get bike detials description
+  getBikeDetailsDescription: publicProcedure
+    .input(z.object({ id: z.number() }))
+    .query(async (opts) => {
+      try {
+        const res = await db
+          .select()
+          .from(bikeDetailsDescription)
+          .where(eq(bikeDetailsDescription.bikeDetailsId, opts.input.id));
+        return res[0];
       } catch (e) {
         throw new Error("Bike not found");
       }

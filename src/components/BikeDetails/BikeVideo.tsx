@@ -1,16 +1,10 @@
+import { trpc } from "~/trpc/serverClient";
 import Heading from "../Heading";
 import Vimeo from "../Vimeo";
 import VimeoDescription from "../VimeoDescription";
 
-export default async function BikeVideo({
-  video,
-  title,
-  description,
-}: {
-  video: string;
-  title: string;
-  description: string;
-}) {
+export default async function BikeVideo(params: { id: number }) {
+  const video = await trpc.bikes.getBikeVideo({ id: params.id });
   return (
     <>
       <section
@@ -20,8 +14,11 @@ export default async function BikeVideo({
         <Heading>Video</Heading>
         <section className="relative h-full">
           <div className="absolute w-full">
-            <Vimeo src={video}>
-              <VimeoDescription title={title} description={description} />
+            <Vimeo src={video.video!}>
+              <VimeoDescription
+                title={video.title!}
+                description={video.description!}
+              />
             </Vimeo>
           </div>
         </section>

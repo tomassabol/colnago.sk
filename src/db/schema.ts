@@ -220,6 +220,7 @@ export const bikeVideoRelations = relations(bikeVideo, ({ one }) => ({
 }));
 
 // bike details description
+// TODO: Add image
 export const bikeDetailsDescription = pgTable("bike_details_description", {
   id: serial("id").primaryKey().unique(),
   bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
