@@ -7,6 +7,7 @@ import BikeHeroPage from "~/components/BikeDetails/BikeHeroPage";
 import BikePerformance from "~/components/BikeDetails/BikePerformance";
 import BikeVideo from "~/components/BikeDetails/BikeVideo";
 import Spacer from "~/components/Spacer";
+import { Groupset } from "~/db/schema";
 import { trpc } from "~/trpc/serverClient";
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -26,25 +27,24 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      {bike?.bike ? <BikeHeroPage bike={bike?.bike} /> : null}
+      <BikeHeroPage bike={bike?.bike!} />
 
       <section className="w-screen space-y-5 bg-slate-50 p-10 pb-28 text-slate-950">
         <BikeConfig
           description={bike.bike?.description!}
           colors={bikeColors}
           frameSizes={frameSizes.map((framesize) => framesize.size!)}
-          groupsets={groupsets}
+          groupsets={groupsets as Groupset[]}
+          wheels={wheels}
         />
 
         <Spacer />
 
-        {bike.bike ? (
-          <BikeVideo
-            video="https://player.vimeo.com/video/822807364?h=ca735158f1&title=0&byline=0&portrait=0"
-            title="Objavte nové colnago"
-            description={bike.bike?.description!}
-          />
-        ) : null}
+        <BikeVideo
+          video="https://player.vimeo.com/video/822807364?h=ca735158f1&title=0&byline=0&portrait=0"
+          title="Objavte nové colnago"
+          description={bike.bike?.description!}
+        />
 
         <BikeDescription
           title="Precizní zpracování, špičková jízda"

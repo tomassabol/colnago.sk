@@ -1,23 +1,24 @@
 "use client";
 import { useState } from "react";
+import { Wheel } from "~/db/schema";
 
-export default function Wheels({ wheels }: { wheels: string[] }) {
+export default function Wheels({ wheels }: { wheels: Wheel[] }) {
   const [selectedSize, setSelectedSize] = useState(wheels[0]);
   return (
     <>
       <div className="flex w-full flex-col">
-        {wheels.map((size) => (
+        {wheels.map((wheel) => (
           <button
             className={
               "border bg-white p-4 text-left text-xs" +
-              (selectedSize === size
+              (selectedSize === wheel
                 ? " border-[#b59251]"
                 : " border-[#e5e5e5]")
             }
-            key={size}
-            onClick={() => setSelectedSize(size)}
+            key={wheel.id}
+            onClick={() => setSelectedSize(wheel)}
           >
-            {size}
+            {wheel.name}
           </button>
         ))}
       </div>

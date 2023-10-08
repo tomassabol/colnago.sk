@@ -1,10 +1,10 @@
 "use client";
-import { BikeColor, Groupset } from "~/db/schema";
+import { BikeColor, Groupset, Wheel } from "~/db/schema";
 import Color from "../Color";
 import FrameSize from "../FrameSize";
 import GroupsetComponent from "../Groupset";
 import Heading from "../Heading";
-import Wheels from "../Wheels";
+import WheelsComponent from "../Wheels";
 import ImageCarousel from "./ImageCarousel";
 
 export default function BikeConfig({
@@ -12,11 +12,13 @@ export default function BikeConfig({
   colors,
   frameSizes,
   groupsets,
+  wheels,
 }: {
   description: string;
   colors: BikeColor[];
   frameSizes: number[];
   groupsets: Groupset[];
+  wheels: Wheel[];
 }) {
   return (
     <>
@@ -48,17 +50,7 @@ export default function BikeConfig({
             </li>
             <li className="space-y-2">
               <h2>4. Kolesá</h2>
-              <Wheels
-                wheels={[
-                  "ENVE WS SES 3.4 CL",
-                  "Campagnolo Bora Ultra WTO 45 DB CL",
-                  "Shimano Dura Ace C50 DB",
-                  "Fulcrum Racing Wind 400 DB",
-                  "Zipp 303 Firecrest",
-                  "Fulcrum Racing 600 DB",
-                  "Fulcrum Racing Wind DB",
-                ]}
-              />
+              <WheelsComponent wheels={wheels} />
             </li>
           </ol>
         </div>
