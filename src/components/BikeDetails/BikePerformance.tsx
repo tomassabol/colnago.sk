@@ -2,7 +2,7 @@ import DetailImage from "~/assets/images/bikes/c68/c68-detail.jpg";
 import Heading from "../Heading";
 import BikePerformanceCard from "./BikePerformanceCard";
 
-export default async function BikePerformance() {
+export default async function BikePerformance({ id }: { id: number }) {
   return (
     <>
       <Heading>Výkon</Heading>

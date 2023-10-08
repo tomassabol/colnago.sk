@@ -91,6 +91,7 @@ export const bikeDetailsToFrameSizes = pgTable(
   {
     bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
     frameSizesId: serial("frame_sizes_id").references(() => frameSizes.id),
+    // TODO: add size guide file url
   },
   (t) => ({
     pk: primaryKey(t.bikeDetailsId, t.frameSizesId),

@@ -1,6 +1,6 @@
+import BikeDetailsInfo from "~/app/bicykle/[slug]/RSC/BikeDetailsInfo";
 import BikeConfig from "~/components/BikeDetails/BikeConfig";
 import BikeDescription from "~/components/BikeDetails/BikeDescription";
-import BikeDetails from "~/components/BikeDetails/BikeDetails";
 import BikeGeometry from "~/components/BikeDetails/BikeGeometry";
 import BikeHeroPage from "~/components/BikeDetails/BikeHeroPage";
 import BikePerformance from "~/components/BikeDetails/BikePerformance";
@@ -49,11 +49,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         <Spacer />
 
-        <BikeDetails />
+        <BikeDetailsInfo id={bike.bike_details.id} />
 
         <Spacer />
 
-        <BikePerformance />
+        <BikePerformance id={bike.bike_details.id} />
       </section>
     </>
   );

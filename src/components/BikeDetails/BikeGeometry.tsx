@@ -20,7 +20,14 @@ export default async function BikeGeometry({
           <div>
             <div className="flex items-end gap-0.5">
               <h3 className="text-xl font-medium italic text-[#b59251]">
-                {modelName} - Veľkostná príručka
+                <a
+                  // href="" TODO: add link to download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                >
+                  {modelName} - Veľkostná príručka
+                </a>
               </h3>
               <span className="pb-1 text-xs">(26KB)</span>
             </div>

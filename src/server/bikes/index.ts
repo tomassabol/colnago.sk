@@ -3,6 +3,8 @@ import { z } from "zod";
 import { db } from "~/db";
 import {
   bikeColors,
+  bikeDetailInfo,
+  bikeDetailInfoItem,
   bikeDetails,
   bikeDetailsDescription,
   bikeDetailsToColors,
@@ -167,7 +169,33 @@ export const bikeRouter = router({
           .from(bikeGeometry)
           .where(eq(bikeGeometry.bikeDetailsId, opts.input.id))
           .rightJoin(frameSizes, eq(bikeGeometry.frameSizesId, frameSizes.id));
-        console.log(res);
+        return res;
+      } catch (e) {
+        throw new Error("Bike not found");
+      }
+    }),
+
+  // get bike detail infos
+  getBikeDetailInfos: publicProcedure
+    .input(z.object({ id: z.number() }))
+    .query(async (opts) => {
+      try {
+        const res = await db
+          .select()
+          .from(bikeDetailInfo)
+          .where(eq(bikeDetailInfo.bikeDetailsId, opts.input.id))
+          .then(async (res) => {
+            return await Promise.all(
+              res.map(async (info) => {
+                const res = await db
+                  .select()
+                  .from(bikeDetailInfoItem)
+                  .where(eq(bikeDetailInfoItem.bikeDetailInfoId, info.id));
+                return { ...info, items: res };
+              }),
+            );
+          });
+
         return res;
       } catch (e) {
         throw new Error("Bike not found");
