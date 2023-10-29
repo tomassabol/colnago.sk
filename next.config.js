@@ -44,6 +44,16 @@ const nextConfig = {
         hostname: "www.colnago.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "www.utfs.io",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "utfs.io",
+        port: "",
+      },
     ],
   },
 };

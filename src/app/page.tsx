@@ -33,13 +33,17 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="flex h-screen w-screen flex-col text-black">
+      {/* <section className="flex h-screen w-screen flex-col text-black">
         <div className="relative flex w-screen justify-center border-b-[0.5px] border-slate-300 py-10">
           <span className="absolute bottom-[-1px] w-[10rem] border-b-[1.5px] border-[#b59251]" />
           <span className="absolute bottom-[8px] text-center text-xs uppercase tracking-widest text-[#b59251]">
             Bicykle Colnago
           </span>
         </div>
+      </section> */}
+      {/* TODO: Remove */}
+      <section className="flex h-[30vh] w-screen flex-col text-black">
+        <div className="relative flex w-screen justify-center py-10"></div>
       </section>
 
       <section className="relative h-[63vh] bg-gray-950">
