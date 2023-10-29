@@ -12,6 +12,8 @@ import {
   bikeDetailsToGroupsets,
   bikeDetailsToWheels,
   bikeGeometry,
+  bikePerformance,
+  bikePerformanceItem,
   bikeVideo,
   bikes,
   frameSizes,
@@ -197,6 +199,27 @@ export const bikeRouter = router({
           });
 
         return res;
+      } catch (e) {
+        throw new Error("Bike not found");
+      }
+    }),
+
+  // get bike performance
+  getBikePerformance: publicProcedure
+    .input(z.object({ id: z.number() }))
+    .query(async (opts) => {
+      try {
+        const res = (
+          await db
+            .select()
+            .from(bikePerformance)
+            .where(eq(bikePerformance.bikeDetailsId, opts.input.id))
+        )[0];
+        const performanceDetails = await db
+          .select()
+          .from(bikePerformanceItem)
+          .where(eq(bikePerformanceItem.bikePerformanceId, res.id));
+        return { ...res, performanceDetails };
       } catch (e) {
         throw new Error("Bike not found");
       }

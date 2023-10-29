@@ -39,6 +39,11 @@ const nextConfig = {
         hostname: "uploadthing-prod.s3.us-west-2.amazonaws.com/",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "www.colnago.com",
+        port: "",
+      },
     ],
   },
 };

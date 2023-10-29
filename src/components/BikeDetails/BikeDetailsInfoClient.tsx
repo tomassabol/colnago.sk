@@ -34,7 +34,7 @@ export default function BikeDetailsInfoClient({
 
       <div className="flex flex-wrap gap-y-10">
         {selectedBikeDetailInfo.items.map((item) => (
-          <div className="w-full p-4 lg:w-1/2">
+          <div className="w-full p-4 lg:w-1/2" key={item.id}>
             <label htmlFor="vidlice" className="font-bold uppercase">
               {item.title}
             </label>

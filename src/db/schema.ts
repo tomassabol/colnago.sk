@@ -358,9 +358,9 @@ export const bikePerformanceItem = pgTable(
     bikePerformanceId: serial("bike_performance_id").references(
       () => bikePerformance.id,
     ),
-    imageUrl: text("image_url"),
-    title: text("title"),
-    description: text("description"),
+    imageUrl: text("image_url").notNull(),
+    title: text("title").notNull(),
+    description: text("description").notNull(),
   },
   (t) => ({
     pk: primaryKey(t.bikePerformanceId, t.id),

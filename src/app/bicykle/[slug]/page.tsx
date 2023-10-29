@@ -1,4 +1,3 @@
-import BikeDetailsInfo from "~/app/bicykle/[slug]/RSC/BikeDetailsInfo";
 import BikeConfig from "~/components/BikeDetails/BikeConfig";
 import BikeDescription from "~/components/BikeDetails/BikeDescription";
 import BikeGeometry from "~/components/BikeDetails/BikeGeometry";
@@ -8,6 +7,7 @@ import BikeVideo from "~/components/BikeDetails/BikeVideo";
 import Spacer from "~/components/Spacer";
 import { Groupset } from "~/db/schema";
 import { trpc } from "~/trpc/serverClient";
+import BikeDetailsInfo from "./RSC/BikeDetailsInfo";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const bike = await trpc.bikes.getBikeBySlug({ slug: params.slug });

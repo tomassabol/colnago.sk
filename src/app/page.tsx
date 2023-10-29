@@ -20,7 +20,7 @@ export default async function Home() {
           background: `linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)) 0% 0% / cover, url(${Cover.src}) center 100% no-repeat transparent`,
         }}
       >
-        <div className="relative h-full w-screen">
+        <div className="relative h-full w-screen text-white">
           <div className="absolute bottom-[30vh] left-12 md:w-1/2 xl:left-40 xl:w-1/4">
             <div className="pb-10">
               <h3>Colnago</h3>
@@ -32,8 +32,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-
-      {/* <FileUploader /> */}
 
       <section className="flex h-screen w-screen flex-col text-black">
         <div className="relative flex w-screen justify-center border-b-[0.5px] border-slate-300 py-10">
