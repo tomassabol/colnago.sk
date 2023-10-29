@@ -36,6 +36,20 @@
       "when": 1695235731885,
       "tag": "0004_swift_centennial",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1698610172138,
+      "tag": "0005_slow_giant_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1698610547481,
+      "tag": "0006_confused_post",
+      "breakpoints": true
     }
   ]
 }

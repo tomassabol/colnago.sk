@@ -1,5 +1,6 @@
 import { InferSelectModel, relations } from "drizzle-orm";
 import {
+  decimal,
   integer,
   pgTable,
   primaryKey,
@@ -11,10 +12,10 @@ import {
 // bikes
 export const bikes = pgTable("bike", {
   id: uuid("id").primaryKey(),
-  slug: text("slug").unique(),
-  name: text("name"),
-  description: text("description"),
-  image: text("image"),
+  slug: text("slug").unique().notNull(),
+  name: text("name").notNull(),
+  description: text("description").notNull(),
+  image: text("image").notNull(),
   bikeDetails: serial("bike_details"),
 });
 export type Bike = InferSelectModel<typeof bikes>;
@@ -28,7 +29,7 @@ export const bikeRelations = relations(bikes, ({ one }) => ({
 // bike details
 export const bikeDetails = pgTable("bike_details", {
   id: serial("id").primaryKey().unique(),
-  bg_image: text("bg_image"),
+  bg_image: text("bg_image").notNull(),
 });
 export type BikeDetails = InferSelectModel<typeof bikeDetails>;
 export const bikeDetailsRelations = relations(bikeDetails, ({ one, many }) => ({
@@ -58,6 +59,13 @@ export const bikeDetailsRelations = relations(bikeDetails, ({ one, many }) => ({
     references: [bikeDetailInfo.bikeDetailsId],
   }),
 }));
+
+export const bikeDetailsGallery = pgTable("bike_details_gallery", {
+  id: serial("id").primaryKey().unique(),
+  bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
+  imageUrl: text("image_url").notNull(),
+});
+export type BikeDetailsGallery = InferSelectModel<typeof bikeDetailsGallery>;
 
 // bike details to colors
 export const bikeDetailsToColors = pgTable(
@@ -91,7 +99,7 @@ export const bikeDetailsToFrameSizes = pgTable(
   {
     bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
     frameSizesId: serial("frame_sizes_id").references(() => frameSizes.id),
-    // TODO: add size guide file url
+    fileSizesGuideUrl: text("file_sizes_guide_url").notNull(),
   },
   (t) => ({
     pk: primaryKey(t.bikeDetailsId, t.frameSizesId),
@@ -164,8 +172,8 @@ export const bikeDetailsToWheelsRelations = relations(
 // bike colors
 export const bikeColors = pgTable("bike_colors", {
   id: serial("id").primaryKey().unique(),
-  color: text("color"),
-  image: text("image"),
+  color: text("color").notNull(),
+  image: text("image").notNull(),
 });
 export type BikeColor = InferSelectModel<typeof bikeColors>;
 export const bikeColorsRelations = relations(bikeColors, ({ many }) => ({
@@ -175,8 +183,10 @@ export const bikeColorsRelations = relations(bikeColors, ({ many }) => ({
 // frame sizes
 export const frameSizes = pgTable("bike_sizes", {
   id: serial("id").primaryKey().unique(),
-  bikeId: uuid("bike_id").references(() => bikes.id),
-  size: integer("size"),
+  bikeId: uuid("bike_id")
+    .references(() => bikes.id)
+    .notNull(),
+  size: integer("size").notNull(),
 });
 export type FrameSize = InferSelectModel<typeof frameSizes>;
 export const frameSizesRelations = relations(frameSizes, ({ many }) => ({
@@ -187,7 +197,7 @@ export const frameSizesRelations = relations(frameSizes, ({ many }) => ({
 // groupsets
 export const groupset = pgTable("groupset", {
   id: serial("id").primaryKey().unique(),
-  name: text("name"),
+  name: text("name").notNull(),
 });
 export type Groupset = InferSelectModel<typeof groupset>;
 export const groupsetRelations = relations(groupset, ({ many }) => ({
@@ -197,7 +207,7 @@ export const groupsetRelations = relations(groupset, ({ many }) => ({
 // wheels
 export const wheels = pgTable("wheels", {
   id: serial("id").primaryKey().unique(),
-  name: text("name"),
+  name: text("name").notNull(),
 });
 export type Wheel = InferSelectModel<typeof wheels>;
 export const wheelsRelations = relations(wheels, ({ many }) => ({
@@ -207,10 +217,12 @@ export const wheelsRelations = relations(wheels, ({ many }) => ({
 // bike video
 export const bikeVideo = pgTable("bike_video", {
   id: serial("id").primaryKey().unique(),
-  bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
-  video: text("video"),
-  title: text("title"),
-  description: text("description"),
+  bikeDetailsId: serial("bike_details_id")
+    .references(() => bikeDetails.id)
+    .notNull(),
+  video: text("video").notNull(),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
 });
 export type BikeVideo = InferSelectModel<typeof bikeVideo>;
 export const bikeVideoRelations = relations(bikeVideo, ({ one }) => ({
@@ -221,12 +233,14 @@ export const bikeVideoRelations = relations(bikeVideo, ({ one }) => ({
 }));
 
 // bike details description
-// TODO: Add image
 export const bikeDetailsDescription = pgTable("bike_details_description", {
   id: serial("id").primaryKey().unique(),
-  bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
-  title: text("title"),
-  description: text("description"),
+  bikeDetailsId: serial("bike_details_id")
+    .references(() => bikeDetails.id)
+    .notNull(),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  imageUrl: text("image_url").notNull(),
 });
 export type BikeDetailsDescription = InferSelectModel<
   typeof bikeDetailsDescription
@@ -247,17 +261,16 @@ export const bikeGeometry = pgTable(
   {
     frameSizesId: serial("frame_sizes_id").references(() => frameSizes.id),
     bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
-    // TODO: change all to decimal
-    fork: integer("fork"),
-    a: integer("a"),
-    hs: integer("hs"),
-    bbDrop: integer("bb_drop"),
-    stack: integer("stack"),
-    sc: integer("sc"),
-    c: integer("c"),
-    ss: integer("ss"),
-    o: integer("o"),
-    reach: integer("reach"),
+    fork: decimal("fork").notNull(),
+    a: decimal("a").notNull(),
+    hs: decimal("hs").notNull(),
+    bbDrop: decimal("bb_drop").notNull(),
+    stack: decimal("stack").notNull(),
+    sc: decimal("sc").notNull(),
+    c: decimal("c").notNull(),
+    ss: decimal("ss").notNull(),
+    o: decimal("o").notNull(),
+    reach: decimal("reach").notNull(),
   },
   (t) => ({
     pk: primaryKey(t.frameSizesId, t.bikeDetailsId),
@@ -279,7 +292,7 @@ export const bikeGeometryRelations = relations(bikeGeometry, ({ one }) => ({
 export const sizeGuide = pgTable("size_guide", {
   id: serial("id").primaryKey().unique(),
   bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
-  url: text("url"),
+  url: text("url").notNull(),
 });
 export type SizeGuide = InferSelectModel<typeof sizeGuide>;
 export const sizeGuideRelations = relations(sizeGuide, ({ one }) => ({
@@ -293,7 +306,7 @@ export const sizeGuideRelations = relations(sizeGuide, ({ one }) => ({
 export const bikeDetailInfo = pgTable("bike_detail_info", {
   id: serial("id").primaryKey().unique(),
   bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
-  title: text("title"),
+  title: text("title").notNull(),
 });
 export type BikeDetailInfo = InferSelectModel<typeof bikeDetailInfo>;
 export const bikeDetailInfoRelations = relations(
@@ -316,7 +329,7 @@ export const bikeDetailInfoItem = pgTable(
       () => bikeDetailInfo.id,
     ),
     title: text("title"),
-    description: text("description"),
+    description: text("description").notNull(),
   },
   (t) => ({
     pk: primaryKey(t.bikeDetailInfoId, t.id),
