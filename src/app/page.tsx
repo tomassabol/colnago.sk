@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Cover from "~/assets/images/cover.jpeg";
 import Predajna from "~/assets/images/prodejna.jpg";
 import TestRide from "~/assets/images/test-ride.jpeg";
@@ -28,7 +29,9 @@ export default async function Home() {
                 C68 - made in Italy
               </p>
             </div>
-            <ButtonReusable variant="primary">Viac informácií</ButtonReusable>
+            <Link href="/bicykle/c68">
+              <ButtonReusable variant="primary">Viac informácií</ButtonReusable>
+            </Link>
           </div>
         </div>
       </section>

@@ -109,7 +109,7 @@ export const bikeRouter = router({
             groupset,
             eq(bikeDetailsToGroupsets.groupsetId, groupset.id),
           );
-        return res.map((groupset) => groupset.groupset);
+        return res.map((groupset) => groupset.groupset!);
       } catch (e) {
         throw new Error("Bike not found");
       }

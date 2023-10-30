@@ -1,13 +1,19 @@
 import { Bike } from "~/db/schema";
 import BreadCrumbNav from "../BreadCrumbNav";
 
-export default async function BikeHeroPage({ bike }: { bike: Bike }) {
+export default async function BikeHeroPage({
+  bike,
+  image,
+}: {
+  bike: Bike;
+  image: string;
+}) {
   return (
     <>
       <section
         className="text-white, h-[85vh] w-full"
         style={{
-          background: `url('https://s3.eu-west-1.amazonaws.com/colnago.sk/c68/c63_bck.jpg') center 100% no-repeat `,
+          background: `url('${image}') center 100% no-repeat `,
         }}
       >
         <div className="relative h-full w-screen">

@@ -5,7 +5,6 @@ import BikeHeroPage from "~/components/BikeDetails/BikeHeroPage";
 import BikePerformance from "~/components/BikeDetails/BikePerformance";
 import BikeVideo from "~/components/BikeDetails/BikeVideo";
 import Spacer from "~/components/Spacer";
-import { Groupset } from "~/db/schema";
 import { trpc } from "~/trpc/serverClient";
 import BikeDetailsInfo from "./RSC/BikeDetailsInfo";
 
@@ -26,14 +25,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <BikeHeroPage bike={bike?.bike!} />
+      <BikeHeroPage bike={bike?.bike!} image={bike.bike_details.bg_image} />
 
       <section className="w-screen space-y-5 bg-slate-50 p-10 pb-28 text-slate-950">
         <BikeConfig
           description={bike.bike?.description!}
           colors={bikeColors}
           frameSizes={frameSizes.map((framesize) => framesize.size!)}
-          groupsets={groupsets as Groupset[]}
+          groupsets={groupsets}
           wheels={wheels}
         />
 
