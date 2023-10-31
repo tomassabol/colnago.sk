@@ -7,54 +7,37 @@ import "swiper/css/scrollbar";
 import { Keyboard, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "~/assets/styles/swiper.css";
+import { BikeDetailsGallery } from "~/db/schema";
 
-export default function ImageCarousel() {
+export default function ImageCarousel({
+  images,
+}: {
+  images: BikeDetailsGallery[];
+}) {
   return (
-    <>
-      <div className="flex h-fit w-full lg:w-1/2">
-        <Swiper
-          className="rounded-xl border shadow-sm"
-          modules={[Navigation, Pagination, Keyboard]}
-          spaceBetween={50}
-          slidesPerView={1}
-          keyboard={true}
-          pagination={{ clickable: true }}
-          navigation={{ enabled: true }}
-        >
-          <SwiperSlide className="p-10">
+    <div className="flex h-fit w-full lg:w-1/2">
+      <Swiper
+        className="rounded-xl border shadow-sm"
+        modules={[Navigation, Pagination, Keyboard]}
+        spaceBetween={50}
+        slidesPerView={1}
+        keyboard={true}
+        pagination={{ clickable: true }}
+        navigation={{ enabled: true }}
+      >
+        {images.map((image) => (
+          <SwiperSlide key={image.id}>
             <Image
-              src="https://cdn.myshoptet.com/usr/www.colnago.cz/user/shop/detail/57-17_colnago-c68-bianc.jpg?6447d910"
-              alt="c68"
+              src={image.imageUrl}
+              alt="Bike Image"
               width={1920}
               height={1080}
+              placeholder="blur"
+              blurDataURL={image.imageUrl}
             />
           </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              src="https://cdn.myshoptet.com/usr/www.colnago.cz/user/shop/detail/57-17_colnago-c68-bianc.jpg?6447d910"
-              alt="c68"
-              width={1920}
-              height={1080}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              src="https://cdn.myshoptet.com/usr/www.colnago.cz/user/shop/detail/57-17_colnago-c68-bianc.jpg?6447d910"
-              alt="c68"
-              width={1920}
-              height={1080}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              src="https://cdn.myshoptet.com/usr/www.colnago.cz/user/shop/detail/57-17_colnago-c68-bianc.jpg?6447d910"
-              alt="c68"
-              width={1920}
-              height={1080}
-            />
-          </SwiperSlide>
-        </Swiper>
-      </div>
-    </>
+        ))}
+      </Swiper>
+    </div>
   );
 }

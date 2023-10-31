@@ -1,0 +1,1 @@
+ALTER TABLE "bike_details_gallery" ADD COLUMN "color_tag" text;

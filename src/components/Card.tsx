@@ -1,5 +1,3 @@
-import React from "react";
-
 export type Address = {
   street: string;
   city: string;
@@ -9,10 +7,10 @@ export type Address = {
 export default function Card(props: { title: string; address: Address }) {
   return (
     <>
-      <div className="bg-[#b59251] flex flex-col w-fit h-fit p-10 gap-y-6">
-        <h1 className="font-bold text-2xl">{props.title}</h1>
+      <div className="flex h-fit w-fit flex-col gap-y-6 bg-[#b59251] p-10">
+        <h4 className="text-2xl font-bold">{props.title}</h4>
 
-        <div className="text-sm flex  gap-4">
+        <div className="flex gap-4  text-sm">
           <span className="border-l-[2px]" />
           <div>
             <p>Nájdete nás na adrese:</p>

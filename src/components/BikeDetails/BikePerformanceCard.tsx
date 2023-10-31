@@ -20,6 +20,7 @@ export default async function BikePerformanceCard({
           >
             {title}
           </label>
+          <hr className="w-1/2" />
           <span className="w-1/3 border-t" />
           <p id="description">{details}</p>
         </div>

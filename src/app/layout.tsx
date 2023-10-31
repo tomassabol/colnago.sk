@@ -1,3 +1,4 @@
+import { GeistMono, GeistSans } from "geist/font";
 import type { Metadata } from "next";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
@@ -15,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
         <Header />
         {children}
         <Footer />

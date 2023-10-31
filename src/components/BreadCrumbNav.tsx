@@ -1,35 +1,22 @@
 "use client";
 import { ChevronRightIcon, HomeIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-export default function BreadCrumbNav() {
-  const pathname = usePathname();
-  const routes = pathname.split("/").filter((route) => route !== "");
-
+export default function BreadCrumbNav({ name }: { name?: string }) {
   return (
     <>
       <section className="text-md flex items-center gap-2 font-medium">
         <Link href="/">
           <HomeIcon />
         </Link>
-        {routes.map((route, index) => {
-          return (
-            <div className="flex items-center gap-2" key={index}>
-              <ChevronRightIcon />
-              <Link
-                href={
-                  "/" +
-                  (routes.indexOf(route) === 0
-                    ? route
-                    : routes[index - 1] + "/" + route)
-                }
-              >
-                {route}
-              </Link>
-            </div>
-          );
-        })}
+        <ChevronRightIcon />
+        <Link href="/bicykle">Bicykle</Link>
+        {name && (
+          <>
+            <ChevronRightIcon />
+            <span>{name}</span>
+          </>
+        )}
       </section>
     </>
   );

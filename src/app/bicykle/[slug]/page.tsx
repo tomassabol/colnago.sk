@@ -10,6 +10,9 @@ import BikeDetailsInfo from "./RSC/BikeDetailsInfo";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const bike = await trpc.bikes.getBikeBySlug({ slug: params.slug });
+  const images = await trpc.bikes.getBikeImages({
+    id: bike.bike_details.id,
+  });
   const bikeColors = await trpc.bikes.getBikeColors({
     id: bike.bike_details.id,
   });
@@ -32,6 +35,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           name={bike.bike?.name!}
           description={bike.bike?.description!}
           colors={bikeColors}
+          images={images}
           frameSizes={frameSizes.map((framesize) => framesize.size!)}
           groupsets={groupsets}
           wheels={wheels}

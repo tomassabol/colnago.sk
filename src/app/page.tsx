@@ -24,10 +24,8 @@ export default async function Home() {
         <div className="relative h-full w-screen text-white">
           <div className="absolute bottom-[30vh] left-12 md:w-1/2 xl:left-40 xl:w-1/4">
             <div className="pb-10">
-              <h3>Colnago</h3>
-              <p className="text-5xl font-extrabold italic">
-                C68 - made in Italy
-              </p>
+              <h5>Colnago</h5>
+              <h3 className="text-5xl ">C68 - made in Italy</h3>
             </div>
             <Link href="/bicykle/c68">
               <ButtonReusable variant="primary">Viac informácií</ButtonReusable>

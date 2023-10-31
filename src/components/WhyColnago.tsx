@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import React from "react";
 
 const headers = [
   "Esencia",
@@ -39,23 +38,23 @@ export default function WhyColnago() {
 
   return (
     <>
-      <div className="flex flex-col gap-12 text-slate-900 xl:w-[45vw] w-full">
+      <div className="flex w-full flex-col gap-12 text-slate-900 xl:w-[45vw]">
         <div>
-          <h3 className="text-[#b59251] text-sm uppercase tracking-widest">
+          <h5 className="text-sm uppercase tracking-widest text-[#b59251]">
             Prečo vlastniť Colnago
-          </h3>
-          <h1 className="text-4xl italic font-bold">Colnago DNA</h1>
+          </h5>
+          <h3 className="text-4xl font-bold italic">Colnago DNA</h3>
         </div>
 
-        <div className="flex items-center md:h-[40vh] h-[60vh]">
-          <div className="border border-[#b59251] lg:p-12 p-6 w-2/3 space-y-4 h-full">
-            <h3 className="text-[#b59251] font-bold text-2xl">
+        <div className="flex h-[60vh] items-center md:h-[40vh]">
+          <div className="h-full w-2/3 space-y-4 border border-[#b59251] p-6 lg:p-12">
+            <h3 className="text-2xl font-bold text-[#b59251]">
               {header as string}
             </h3>
             <p className="whitespace-break-spaces">{text}</p>
           </div>
           <div className="flex items-center justify-center">
-            <div className="flex flex-col justify-center items-start w-1/3 h-full gap-y-4">
+            <div className="flex h-full w-1/3 flex-col items-start justify-center gap-y-4">
               {headers.map((selectedHeader) => (
                 <button
                   value={selectedHeader}
@@ -65,8 +64,8 @@ export default function WhyColnago() {
                   }
                   className={
                     selectedHeader === header
-                      ? "text-[#b59251] border-b-[1.5px] border-[#b59251] border-spacing-y-1 transition-all duration-300 ease-in-out w-max"
-                      : "text-[#969696] hover:text-[#b59251] hover:border-b-[1.5px] border-b-[1.5px] border-transparent hover:border-[#b59251] border-spacing-y-1 transition-all duration-300 ease-in-out w-max"
+                      ? "w-max border-spacing-y-1 border-b-[1.5px] border-[#b59251] text-[#b59251] transition-all duration-300 ease-in-out"
+                      : "w-max border-spacing-y-1 border-b-[1.5px] border-transparent text-[#969696] transition-all duration-300 ease-in-out hover:border-b-[1.5px] hover:border-[#b59251] hover:text-[#b59251]"
                   }
                 >
                   {selectedHeader}

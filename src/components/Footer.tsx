@@ -41,7 +41,7 @@ export default function Footer() {
           ]}
           key={crypto.randomUUID()}
         />
-        <p className="absolute bottom-0 flex w-full justify-center text-gray-400">
+        <p className="absolute bottom-4 flex w-full justify-center text-gray-400">
           © Bigbike 2023, All Rights Reserved
         </p>
       </footer>

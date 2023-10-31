@@ -12,10 +12,10 @@ export default function BikeGeometryTable({
 
   return (
     <div className="flex flex-col gap-5 lg:w-1/2">
-      <h3 className="text-2xl font-medium italic">
+      <h4 className="text-2xl font-medium">
         Vyberte veľkosť, aby ste videli všetky špecifikácie rámu a vyberte si
         ten, ktorý vám vyhovuje.
-      </h3>
+      </h4>
       <div className="flex items-center gap-2">
         <label htmlFor="size" className="uppercase text-slate-600">
           Dostupné veľkosti:

@@ -63,6 +63,7 @@ export const bikeDetailsGallery = pgTable("bike_details_gallery", {
   id: serial("id").primaryKey().unique(),
   bikeDetailsId: serial("bike_details_id").references(() => bikeDetails.id),
   imageUrl: text("image_url").notNull(),
+  // colorTag: text("color_tag"),
 });
 export type BikeDetailsGallery = InferSelectModel<typeof bikeDetailsGallery>;
 

@@ -7,6 +7,7 @@ import {
   bikeDetailInfoItem,
   bikeDetails,
   bikeDetailsDescription,
+  bikeDetailsGallery,
   bikeDetailsToColors,
   bikeDetailsToFrameSizes,
   bikeDetailsToGroupsets,
@@ -220,6 +221,20 @@ export const bikeRouter = router({
           .from(bikePerformanceItem)
           .where(eq(bikePerformanceItem.bikePerformanceId, res.id));
         return { ...res, performanceDetails };
+      } catch (e) {
+        throw new Error("Bike not found");
+      }
+    }),
+
+  getBikeImages: publicProcedure
+    .input(z.object({ id: z.number() }))
+    .query(async (opts) => {
+      try {
+        const res = await db
+          .select()
+          .from(bikeDetailsGallery)
+          .where(eq(bikeDetailsGallery.bikeDetailsId, opts.input.id));
+        return res;
       } catch (e) {
         throw new Error("Bike not found");
       }

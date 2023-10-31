@@ -18,7 +18,7 @@ export default async function BikeHeroPage({
       >
         <div className="relative h-full w-screen">
           <div className="absolute bottom-[30vh] left-10 space-y-4 md:w-1/2 xl:left-20 xl:w-1/4">
-            <BreadCrumbNav />
+            <BreadCrumbNav name={bike?.name} />
             <div className="space-y-10 pb-10">
               <p className="text-5xl font-extrabold italic">{bike?.name}</p>
               <p>{bike?.description}</p>
