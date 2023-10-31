@@ -38,3 +38,6 @@ next-env.d.ts
 .vscode
 .env
 .env
+
+# Sentry Config File
+.sentryclirc

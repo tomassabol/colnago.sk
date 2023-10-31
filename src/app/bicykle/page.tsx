@@ -4,7 +4,6 @@ import { trpc } from "~/trpc/serverClient";
 
 export default async function Page() {
   const bikes = await trpc.bikes.getBikes();
-  if (bikes) console.log(bikes);
 
   return (
     <section className="h-min-screen min-h-[58vh] w-screen space-y-5 bg-slate-50 p-10 text-slate-950">
