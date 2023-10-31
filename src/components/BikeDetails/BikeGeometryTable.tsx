@@ -45,7 +45,7 @@ export default function BikeGeometryTable({
               geometry.bike_sizes.size === size ? (
                 <React.Fragment key={crypto.randomUUID()}>
                   {Object.entries(geometry.bike_geometry!)
-                    .slice(0, 6)
+                    .slice(2, 7)
                     .map(([key, value]) => (
                       <tr
                         className="flex justify-between border-b"
@@ -64,7 +64,7 @@ export default function BikeGeometryTable({
               geometry.bike_sizes.size === size ? (
                 <React.Fragment key={crypto.randomUUID()}>
                   {Object.entries(geometry.bike_geometry!)
-                    .slice(6)
+                    .slice(7)
                     .map(([key, value]) => (
                       <tr
                         className="flex justify-between border-b"
