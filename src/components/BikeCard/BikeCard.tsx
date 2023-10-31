@@ -16,7 +16,7 @@ export default function BikeCard(props: { bike: Omit<Bike, "bikeDetails"> }) {
           width={300}
           height={300}
           className="w-auto"
-          priority
+          placeholder="empty"
         />
         <div className="space-y-2">
           <h3 className="font-bold italic text-slate-900">{props.bike.name}</h3>

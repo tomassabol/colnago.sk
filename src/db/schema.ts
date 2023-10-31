@@ -1,7 +1,6 @@
 import { InferSelectModel, relations } from "drizzle-orm";
 import {
   decimal,
-  integer,
   pgTable,
   primaryKey,
   serial,
@@ -186,7 +185,7 @@ export const frameSizes = pgTable("bike_sizes", {
   bikeId: uuid("bike_id")
     .references(() => bikes.id)
     .notNull(),
-  size: integer("size").notNull(),
+  size: text("size").notNull(),
 });
 export type FrameSize = InferSelectModel<typeof frameSizes>;
 export const frameSizesRelations = relations(frameSizes, ({ many }) => ({

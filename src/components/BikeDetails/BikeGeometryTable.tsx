@@ -23,8 +23,8 @@ export default function BikeGeometryTable({
         <select
           name="size"
           id="size"
-          className="rounded-md border"
-          onChange={(e) => setSize(Number(e.target.value))}
+          className="rounded-md border px-1 py-0.5"
+          onChange={(e) => setSize(e.target.value)}
         >
           {geometry.map((geometry) => (
             <option

@@ -29,6 +29,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
       <section className="w-screen space-y-5 bg-slate-50 p-10 pb-28 text-slate-950">
         <BikeConfig
+          name={bike.bike?.name!}
           description={bike.bike?.description!}
           colors={bikeColors}
           frameSizes={frameSizes.map((framesize) => framesize.size!)}

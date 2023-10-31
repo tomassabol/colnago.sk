@@ -8,15 +8,17 @@ import WheelsComponent from "../Wheels";
 import ImageCarousel from "./ImageCarousel";
 
 export default function BikeConfig({
+  name,
   description,
   colors,
   frameSizes,
   groupsets,
   wheels,
 }: {
+  name: string;
   description: string;
   colors: BikeColor[];
-  frameSizes: number[];
+  frameSizes: string[];
   groupsets: Groupset[];
   wheels: Wheel[];
 }) {
@@ -28,7 +30,7 @@ export default function BikeConfig({
       >
         <ImageCarousel />
         <div className="w-full flex-col gap-y-2 lg:w-max">
-          <Heading>C68</Heading>
+          <Heading>{name}</Heading>
           <h6>{description}</h6>
 
           <ol className="flex flex-col gap-y-4">

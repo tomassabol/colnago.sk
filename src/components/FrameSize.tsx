@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function FrameSize({ sizes }: { sizes: number[] }) {
+export default function FrameSize({ sizes }: { sizes: string[] }) {
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
   return (
     <>

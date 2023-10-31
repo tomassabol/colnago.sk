@@ -1,0 +1,1048 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "id": "3c50c8fa-1ec6-4158-b521-499e86247b61",
+  "prevId": "b5e7e400-c69f-4ef9-a19e-cc8b3cb92295",
+  "tables": {
+    "bike_colors": {
+      "name": "bike_colors",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "color": {
+          "name": "color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image": {
+          "name": "image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "bike_colors_id_unique": {
+          "name": "bike_colors_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "bike_detail_info": {
+      "name": "bike_detail_info",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "bike_details_id": {
+          "name": "bike_details_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_detail_info_bike_details_id_bike_details_id_fk": {
+          "name": "bike_detail_info_bike_details_id_bike_details_id_fk",
+          "tableFrom": "bike_detail_info",
+          "tableTo": "bike_details",
+          "columnsFrom": [
+            "bike_details_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "bike_detail_info_id_unique": {
+          "name": "bike_detail_info_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "bike_detail_info_item": {
+      "name": "bike_detail_info_item",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bike_detail_info_id": {
+          "name": "bike_detail_info_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_detail_info_item_bike_detail_info_id_bike_detail_info_id_fk": {
+          "name": "bike_detail_info_item_bike_detail_info_id_bike_detail_info_id_fk",
+          "tableFrom": "bike_detail_info_item",
+          "tableTo": "bike_detail_info",
+          "columnsFrom": [
+            "bike_detail_info_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "bike_detail_info_item_bike_detail_info_id_id": {
+          "name": "bike_detail_info_item_bike_detail_info_id_id",
+          "columns": [
+            "bike_detail_info_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "bike_detail_info_item_id_unique": {
+          "name": "bike_detail_info_item_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "bike_details": {
+      "name": "bike_details",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "bg_image": {
+          "name": "bg_image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "bike_details_id_unique": {
+          "name": "bike_details_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "bike_details_description": {
+      "name": "bike_details_description",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "bike_details_id": {
+          "name": "bike_details_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_details_description_bike_details_id_bike_details_id_fk": {
+          "name": "bike_details_description_bike_details_id_bike_details_id_fk",
+          "tableFrom": "bike_details_description",
+          "tableTo": "bike_details",
+          "columnsFrom": [
+            "bike_details_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "bike_details_description_id_unique": {
+          "name": "bike_details_description_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "bike_details_gallery": {
+      "name": "bike_details_gallery",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "bike_details_id": {
+          "name": "bike_details_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_details_gallery_bike_details_id_bike_details_id_fk": {
+          "name": "bike_details_gallery_bike_details_id_bike_details_id_fk",
+          "tableFrom": "bike_details_gallery",
+          "tableTo": "bike_details",
+          "columnsFrom": [
+            "bike_details_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "bike_details_gallery_id_unique": {
+          "name": "bike_details_gallery_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "bike_details_to_colors": {
+      "name": "bike_details_to_colors",
+      "schema": "",
+      "columns": {
+        "bike_details_id": {
+          "name": "bike_details_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bike_colors_id": {
+          "name": "bike_colors_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_details_to_colors_bike_details_id_bike_details_id_fk": {
+          "name": "bike_details_to_colors_bike_details_id_bike_details_id_fk",
+          "tableFrom": "bike_details_to_colors",
+          "tableTo": "bike_details",
+          "columnsFrom": [
+            "bike_details_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "bike_details_to_colors_bike_colors_id_bike_colors_id_fk": {
+          "name": "bike_details_to_colors_bike_colors_id_bike_colors_id_fk",
+          "tableFrom": "bike_details_to_colors",
+          "tableTo": "bike_colors",
+          "columnsFrom": [
+            "bike_colors_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "bike_details_to_colors_bike_details_id_bike_colors_id": {
+          "name": "bike_details_to_colors_bike_details_id_bike_colors_id",
+          "columns": [
+            "bike_details_id",
+            "bike_colors_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "bike_details_to_frame_sizes": {
+      "name": "bike_details_to_frame_sizes",
+      "schema": "",
+      "columns": {
+        "bike_details_id": {
+          "name": "bike_details_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "frame_sizes_id": {
+          "name": "frame_sizes_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "file_sizes_guide_url": {
+          "name": "file_sizes_guide_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_details_to_frame_sizes_bike_details_id_bike_details_id_fk": {
+          "name": "bike_details_to_frame_sizes_bike_details_id_bike_details_id_fk",
+          "tableFrom": "bike_details_to_frame_sizes",
+          "tableTo": "bike_details",
+          "columnsFrom": [
+            "bike_details_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "bike_details_to_frame_sizes_frame_sizes_id_bike_sizes_id_fk": {
+          "name": "bike_details_to_frame_sizes_frame_sizes_id_bike_sizes_id_fk",
+          "tableFrom": "bike_details_to_frame_sizes",
+          "tableTo": "bike_sizes",
+          "columnsFrom": [
+            "frame_sizes_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "bike_details_to_frame_sizes_bike_details_id_frame_sizes_id": {
+          "name": "bike_details_to_frame_sizes_bike_details_id_frame_sizes_id",
+          "columns": [
+            "bike_details_id",
+            "frame_sizes_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "bike_details_to_groupsets": {
+      "name": "bike_details_to_groupsets",
+      "schema": "",
+      "columns": {
+        "bike_details_id": {
+          "name": "bike_details_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "groupset_id": {
+          "name": "groupset_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_details_to_groupsets_bike_details_id_bike_details_id_fk": {
+          "name": "bike_details_to_groupsets_bike_details_id_bike_details_id_fk",
+          "tableFrom": "bike_details_to_groupsets",
+          "tableTo": "bike_details",
+          "columnsFrom": [
+            "bike_details_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "bike_details_to_groupsets_groupset_id_groupset_id_fk": {
+          "name": "bike_details_to_groupsets_groupset_id_groupset_id_fk",
+          "tableFrom": "bike_details_to_groupsets",
+          "tableTo": "groupset",
+          "columnsFrom": [
+            "groupset_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "bike_details_to_groupsets_bike_details_id_groupset_id": {
+          "name": "bike_details_to_groupsets_bike_details_id_groupset_id",
+          "columns": [
+            "bike_details_id",
+            "groupset_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "bike_details_to_wheels": {
+      "name": "bike_details_to_wheels",
+      "schema": "",
+      "columns": {
+        "bike_details_id": {
+          "name": "bike_details_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "wheels_id": {
+          "name": "wheels_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_details_to_wheels_bike_details_id_bike_details_id_fk": {
+          "name": "bike_details_to_wheels_bike_details_id_bike_details_id_fk",
+          "tableFrom": "bike_details_to_wheels",
+          "tableTo": "bike_details",
+          "columnsFrom": [
+            "bike_details_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "bike_details_to_wheels_wheels_id_wheels_id_fk": {
+          "name": "bike_details_to_wheels_wheels_id_wheels_id_fk",
+          "tableFrom": "bike_details_to_wheels",
+          "tableTo": "wheels",
+          "columnsFrom": [
+            "wheels_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "bike_details_to_wheels_bike_details_id_wheels_id": {
+          "name": "bike_details_to_wheels_bike_details_id_wheels_id",
+          "columns": [
+            "bike_details_id",
+            "wheels_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "bike_geometry": {
+      "name": "bike_geometry",
+      "schema": "",
+      "columns": {
+        "frame_sizes_id": {
+          "name": "frame_sizes_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bike_details_id": {
+          "name": "bike_details_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fork": {
+          "name": "fork",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "a": {
+          "name": "a",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hs": {
+          "name": "hs",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bb_drop": {
+          "name": "bb_drop",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "stack": {
+          "name": "stack",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sc": {
+          "name": "sc",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "c": {
+          "name": "c",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ss": {
+          "name": "ss",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "o": {
+          "name": "o",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reach": {
+          "name": "reach",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_geometry_frame_sizes_id_bike_sizes_id_fk": {
+          "name": "bike_geometry_frame_sizes_id_bike_sizes_id_fk",
+          "tableFrom": "bike_geometry",
+          "tableTo": "bike_sizes",
+          "columnsFrom": [
+            "frame_sizes_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "bike_geometry_bike_details_id_bike_details_id_fk": {
+          "name": "bike_geometry_bike_details_id_bike_details_id_fk",
+          "tableFrom": "bike_geometry",
+          "tableTo": "bike_details",
+          "columnsFrom": [
+            "bike_details_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "bike_geometry_frame_sizes_id_bike_details_id": {
+          "name": "bike_geometry_frame_sizes_id_bike_details_id",
+          "columns": [
+            "frame_sizes_id",
+            "bike_details_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "bike_performance": {
+      "name": "bike_performance",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "bike_details_id": {
+          "name": "bike_details_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_performance_bike_details_id_bike_details_id_fk": {
+          "name": "bike_performance_bike_details_id_bike_details_id_fk",
+          "tableFrom": "bike_performance",
+          "tableTo": "bike_details",
+          "columnsFrom": [
+            "bike_details_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "bike_performance_id_unique": {
+          "name": "bike_performance_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "bike_performance_item": {
+      "name": "bike_performance_item",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bike_performance_id": {
+          "name": "bike_performance_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_performance_item_bike_performance_id_bike_performance_id_fk": {
+          "name": "bike_performance_item_bike_performance_id_bike_performance_id_fk",
+          "tableFrom": "bike_performance_item",
+          "tableTo": "bike_performance",
+          "columnsFrom": [
+            "bike_performance_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "bike_performance_item_bike_performance_id_id": {
+          "name": "bike_performance_item_bike_performance_id_id",
+          "columns": [
+            "bike_performance_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "bike_performance_item_id_unique": {
+          "name": "bike_performance_item_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "bike_video": {
+      "name": "bike_video",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "bike_details_id": {
+          "name": "bike_details_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "video": {
+          "name": "video",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_video_bike_details_id_bike_details_id_fk": {
+          "name": "bike_video_bike_details_id_bike_details_id_fk",
+          "tableFrom": "bike_video",
+          "tableTo": "bike_details",
+          "columnsFrom": [
+            "bike_details_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "bike_video_id_unique": {
+          "name": "bike_video_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "bike": {
+      "name": "bike",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image": {
+          "name": "image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bike_details": {
+          "name": "bike_details",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "bike_slug_unique": {
+          "name": "bike_slug_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "slug"
+          ]
+        }
+      }
+    },
+    "bike_sizes": {
+      "name": "bike_sizes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "bike_id": {
+          "name": "bike_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "size": {
+          "name": "size",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bike_sizes_bike_id_bike_id_fk": {
+          "name": "bike_sizes_bike_id_bike_id_fk",
+          "tableFrom": "bike_sizes",
+          "tableTo": "bike",
+          "columnsFrom": [
+            "bike_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "bike_sizes_id_unique": {
+          "name": "bike_sizes_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "groupset": {
+      "name": "groupset",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "groupset_id_unique": {
+          "name": "groupset_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "size_guide": {
+      "name": "size_guide",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "bike_details_id": {
+          "name": "bike_details_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "url": {
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "size_guide_bike_details_id_bike_details_id_fk": {
+          "name": "size_guide_bike_details_id_bike_details_id_fk",
+          "tableFrom": "size_guide",
+          "tableTo": "bike_details",
+          "columnsFrom": [
+            "bike_details_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "size_guide_id_unique": {
+          "name": "size_guide_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "wheels": {
+      "name": "wheels",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "wheels_id_unique": {
+          "name": "wheels_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
