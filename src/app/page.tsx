@@ -80,17 +80,17 @@ export default async function Home() {
                 zip: "080 01",
                 telephone: "+421 948 200 411",
               }}
-              key={crypto.randomUUID()}
+              key={1}
             />
             <Card
-              title="BigBike"
+              title="BigBike 2"
               address={{
-                street: "Sabinovská 11",
+                street: "Sabinovská 7",
                 city: "Prešov",
                 zip: "080 01",
                 telephone: "+421 948 200 411",
               }}
-              key={crypto.randomUUID()}
+              key={2}
             />
           </div>
         </div>
