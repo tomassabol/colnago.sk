@@ -9,7 +9,7 @@ export default async function BikePerformance({ id }: { id: number }) {
       <Heading>Výkon</Heading>
       <section
         id="bike-performance"
-        className="flex flex-col md:gap-5 lg:flex-row lg:gap-12"
+        className="flex flex-col justify-center gap-2 lg:flex-row"
       >
         {bikePerformance.performanceDetails.map((item) => (
           <BikePerformanceCard
