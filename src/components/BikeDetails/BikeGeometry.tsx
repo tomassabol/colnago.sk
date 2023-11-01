@@ -7,9 +7,11 @@ import BikeGeometryTable from "./BikeGeometryTable";
 export default async function BikeGeometry({
   id,
   modelName,
+  sizeGuideLink,
 }: {
   id: number;
   modelName: string;
+  sizeGuideLink: string;
 }) {
   const geometry = await trpc.bikes.getBikeGeometry({ id });
   return (
@@ -20,12 +22,7 @@ export default async function BikeGeometry({
           <div>
             <div className="flex items-end gap-0.5">
               <h3 className="text-xl font-medium italic text-[#b59251]">
-                <a
-                  // href="" TODO: add link to download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download
-                >
+                <a href={sizeGuideLink} download>
                   {modelName} - Veľkostná príručka
                 </a>
               </h3>

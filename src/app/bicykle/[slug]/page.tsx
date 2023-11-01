@@ -25,6 +25,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const wheels = await trpc.bikes.getBikeWheels({
     id: bike.bike_details.id,
   });
+  const size_guide = await trpc.bikes.getSizeGuide({
+    id: bike.bike_details.id,
+  });
 
   return (
     <>
@@ -49,7 +52,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         <Spacer />
 
-        <BikeGeometry id={bike.bike_details.id} modelName={bike.bike?.name!} />
+        <BikeGeometry
+          id={bike.bike_details.id}
+          modelName={bike.bike?.name!}
+          sizeGuideLink={size_guide.url}
+        />
 
         <Spacer />
 

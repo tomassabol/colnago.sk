@@ -19,6 +19,7 @@ import {
   bikes,
   frameSizes,
   groupset,
+  sizeGuide,
   wheels,
 } from "~/db/schema";
 import { publicProcedure, router } from "../trpc";
@@ -235,6 +236,20 @@ export const bikeRouter = router({
           .from(bikeDetailsGallery)
           .where(eq(bikeDetailsGallery.bikeDetailsId, opts.input.id));
         return res;
+      } catch (e) {
+        throw new Error("Bike not found");
+      }
+    }),
+
+  getSizeGuide: publicProcedure
+    .input(z.object({ id: z.number() }))
+    .query(async (opts) => {
+      try {
+        const res = await db
+          .select()
+          .from(sizeGuide)
+          .where(eq(sizeGuide.bikeDetailsId, opts.input.id));
+        return res[0];
       } catch (e) {
         throw new Error("Bike not found");
       }

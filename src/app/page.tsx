@@ -51,8 +51,8 @@ export default async function Home() {
         <div className="absolute -top-24 w-full px-[20vw]">
           <Vimeo src="https://player.vimeo.com/video/822807364?h=ca735158f1&title=0&byline=0&portrait=0">
             <VimeoDescription
-              title="Postaveno ručně, stvořeno tam kde vše začalo"
-              description="COLNAGO ERNESTO & C. SRL, VIALE BRIANZA, 9, 20040 CAMBIAGO MI, ITÁLIE"
+              title="Postavené ručne, stvorené tam kde všetko začalo"
+              description="COLNAGO ERNESTO & C. SRL, VIALE BRIANZA, 9, 20040 CAMBIAGO MI, TALIANSKO"
             />
           </Vimeo>
         </div>

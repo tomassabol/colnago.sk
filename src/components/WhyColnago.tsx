@@ -13,19 +13,19 @@ const headers = [
 
 const headerTextMap = {
   Esencia:
-    "Neusilujeme o nic jiného než o dokonalost. Ve všem, co děláme, usilujeme o to nejlepší. Odvážný a vítězný postoj šampionů nás inspiruje k vytváření průkopnických zážitků.",
+    "Neusilujeme sa o nič iné ako o dokonalosť. Vo všetkom, čo robíme, usilujeme o to najlepšie. Odvážny a víťazný postoj šampiónov nás inšpiruje k vytváraniu priekopníckych zážitkov.",
   Majstrovstvo:
-    "Vedl nás skutečný Mistr: Ernesto Colnago, odborník a vizionář. Stále nosíme jeho moudrost a řemeslnou zručnost, abychom vytvořili vynikající zážitky a spolehlivé špičkové produkty. Jsme průkopníci, snažíme se navrhovat budoucnost již dnes.",
+    "Viedol nás skutočný Majster: Ernesto Colnago, odborník a vizionár. Stále nosíme jeho múdrosť a remeselnú zručnosť, aby sme vytvorili vynikajúce zážitky a spoľahlivé špičkové produkty. Sme priekopníci, snažíme sa navrhovať budúcnosť už dnes.",
   Taliansko:
-    "Italská vášeň nám koluje v žilách. Usilujeme o odkaz stylu, vysoké kvality a jemných detailů, které daly místo nejtrvalejším a nejatraktivnějším kulturám na Zemi.",
+    "Talianska vášeň nám koluje v žilách. Usilujeme sa o odkaz štýlu, vysokej kvality a jemných detailov, ktoré dali miesto najtrvalejším a najatraktívnejším kultúram na Zemi.",
   Hrdosť:
-    "Jsme hrdí na svá vítězství. Jsme hrdí na naši historii a hrdí na to, čím se máme stát. Naše dlouhá cesta triumfů vede k naší budoucnosti. Obdivujeme věčnou krásu řemesla a umění a snažíme se takový obdiv zprostředkovat.",
+    "Sme hrdí na svoje víťazstvá. Sme hrdí na našu históriu a hrdí na to, čím sa máme stať. Naša dlhá cesta triumfov vedie k našej budúcnosti. Obdivujeme večnú krásu remesla a umenia a snažíme sa taký obdiv sprostredkovať.",
   Zvodnosť:
-    "Sledujeme tvary, barvy a linie, které definují svůdnost. Vyvoláváme emoce prostřednictvím našich vynikajících a ctižádostivých životních zkušeností. Vytváříme atraktivní a dechberoucí produkty, které nutí lidi otáčet se v úžasu.",
+    "Sledujeme tvary, farby a línie, ktoré definujú zvodnosť. Vyvolávame emócie prostredníctvom našich vynikajúcich a ctižiadostivých životných skúseností. Vytvárame atraktívne a dych vyrážajúce produkty, ktoré nútia ľudí otáčať sa v úžase.",
   Exkluzivita:
-    "Vytváříme ikonické, elegantní a průlomové produkty, které povyšují každodenní životní standardy a inspirují každého člověka, aby zažil sofistikovaný a exkluzivní způsob života.",
+    "Vytvárame ikonické, elegantné a prelomové produkty, ktoré povyšujú každodenné životné štandardy a inšpirujú každého človeka, aby zažil sofistikovaný a exkluzívny spôsob života.",
   Dedictvo:
-    "Hluboce ctíme naše dědictví - historii plnou inovací, vítězství a slávy. Obdivujeme krásu a eleganci legendárního umění. Žijeme, abychom zvěčnili ikonu, kterou Colnago představuje.",
+    "Hlboko ctíme naše dedičstvo - históriu plnú inovácií, víťazstva a slávy. Obdivujeme krásu a eleganciu legendárneho umenia. Žijeme, aby sme zvečnili ikonu, ktorú Colnago predstavuje.",
 };
 
 export default function WhyColnago() {
