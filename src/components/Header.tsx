@@ -9,6 +9,8 @@ import Logo from "~/assets/images/colnago-logo.svg";
 export default function Header() {
   const pathname = usePathname();
   const [variant, setVariant] = useState<string>("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     const newVariant =
       pathname === "/" || pathname.match(/\//g)?.length === 2
@@ -27,34 +29,82 @@ export default function Header() {
     { title: "Bicykle", href: "/bicykle" },
     { title: "Kontakt", href: "/" },
   ];
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header className={variant}>
-      <Image
-        src={Menu}
-        alt="Menu"
-        className="h-auto w-[3rem] xl:hidden"
-        priority
-      />
-      <Link href="/">
+      <div className="flex w-screen items-center justify-between">
         <Image
-          src={Logo}
-          alt="Colnago Logo"
-          className="h-content-fit w-[10em]"
+          src={Menu}
+          alt="Menu"
+          className="h-auto w-[3rem] cursor-pointer xl:hidden"
           priority
+          onClick={toggleMobileMenu}
         />
-      </Link>
-      <nav className="hidden xl:flex">
-        <ul className="flex gap-x-10 text-sm tracking-widest text-white">
-          {links.map((link) => (
-            <li key={crypto.randomUUID()}>
-              <Link href={link.href} className="cursor-pointer">
-                {link.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <span />
+        <Link href="/">
+          <Image
+            src={Logo}
+            alt="Colnago Logo"
+            className="h-content-fit w-[10em]"
+            priority
+          />
+        </Link>
+        <nav className="hidden flex-grow justify-center xl:flex">
+          <ul className="flex gap-x-10 text-sm tracking-widest text-white">
+            {links.map((link) => (
+              <li key={crypto.randomUUID()}>
+                <Link href={link.href} className="cursor-pointer">
+                  {link.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div />
+
+        {isMobileMenuOpen && (
+          <nav className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-black">
+            <div className="absolute right-4 top-4">
+              <svg
+                onClick={closeMobileMenu}
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-x cursor-pointer"
+              >
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </svg>
+            </div>
+            <ul className="flex flex-col gap-y-6 text-xl text-white">
+              {links.map((link) => (
+                <li key={crypto.randomUUID()}>
+                  <Link
+                    href={link.href}
+                    className="cursor-pointer"
+                    onClick={closeMobileMenu}
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+      </div>
     </header>
   );
 }
