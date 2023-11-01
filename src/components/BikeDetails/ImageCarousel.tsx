@@ -14,6 +14,7 @@ export default function ImageCarousel({
 }: {
   images: BikeDetailsGallery[];
 }) {
+  console.log(images);
   return (
     <div className="flex h-fit w-full lg:w-1/2">
       <Swiper
